@@ -63,13 +63,21 @@ public class AdminController {
 			}
 		}else { 
 			url = "/admin/";
-			msg = "관리자 아이디가 일치하지 않습니다. 너 누구야.";
+			msg = "관리자 아이디가 일치하지 않습니다.";
 		}
 		
 		rttr.addFlashAttribute("msg", msg);
 		return "redirect:" + url;
 	}
 				
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(HttpSession session, RedirectAttributes rttr) {
+		
+		session.invalidate();
+		
+		return "redirect:/admin/";
+	}
 
 	}
 

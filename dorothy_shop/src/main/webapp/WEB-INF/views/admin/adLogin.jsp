@@ -17,20 +17,20 @@
 	  <!-- common.jsp -->
     <%@include file="/WEB-INF/views/include/common.jsp" %>
 	
-    <title>SwimLover_AdminLogin</title>
+    <title>Admin_SwimLover</title>
 
 	  <style>
 	
       body {
         min-height: 100vh;
-        background: #06323c;
+        background: #000000;
 
       }
 
       .input-form {
         max-width: 400px;
 
-        margin-top: 100px;
+        margin-top: 200px;
         border-top: 150px;
         padding: 35px;
         padding-right: 35px;
@@ -61,18 +61,18 @@
 <div class="container">
       <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
-          <h4 class="mb-3"><b>관리자 로그인</b></h4><br>
-          <form id = "loginForm" action = "loginPost" method = "post">
+          <h4 class="mb-3"><b>SwimLover 관리자 로그인</b></h4><br>
+          <form action = "/admin/admin_ok" method = "post">
             <div class="mb-3">
             
               <div class="col-md-12 mb-3">
-                <label for="mem_id">아이디</label>
-                <input type="text" class="form-control" id="mem_id" name="mem_id" placeholder="아이디를  입력해주세요.">
+                <label for="admin_id">아이디</label>
+                <input type="text" class="form-control" id="admin_id" name="admin_id" placeholder="아이디를  입력해주세요.">
               </div>
             
               <div class="col-md-12 mb-3">
-                <label for="mem_pw">비밀번호</label>
-                <input type="password" class="form-control" id="mem_pw" name="mem_pw" placeholder="비밀번호를 입력해주세요.">
+                <label for="admin_pw">비밀번호</label>
+                <input type="password" class="form-control" id="admin_pw" name="admin_pw" placeholder="비밀번호를 입력해주세요.">
               </div>
             
              <div class="col-md-12 text-center">

@@ -119,7 +119,7 @@ public class MemberController {
 				session.setAttribute("loginStatus", vo);
 				
 				url = "/";
-				msg = "로그인이 되었습니다.";
+				msg = "로그인 성공! 환영합니다.";
 
 			}else {
 				url = "/member/login";

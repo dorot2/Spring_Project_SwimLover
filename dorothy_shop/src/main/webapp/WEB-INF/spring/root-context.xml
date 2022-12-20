@@ -43,6 +43,11 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
 	</bean>
+	
+		<!-- 트랜잭션 설정구문 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 	 
 	<!--  mybatis에서 사용할 xml mapper 파일의 위치를 설정 -->
 	<!-- src/main/resources폴더에 com/swimlover/mapper 폴더생성하고, com.swimlover.mapper패키지 생성. 그 위치를 아래구문으로 설정. -->
