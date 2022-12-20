@@ -63,7 +63,7 @@ public class AdminController {
 			}
 		}else { 
 			url = "/admin/";
-			msg = "관리자 아이디가 일치하지 않습니다.";
+			msg = "관리자 아이디가 일치하지 않습니다. 너 누구야.";
 		}
 		
 		rttr.addFlashAttribute("msg", msg);
