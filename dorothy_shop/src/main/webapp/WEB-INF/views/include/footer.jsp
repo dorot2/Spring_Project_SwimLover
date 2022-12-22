@@ -7,7 +7,7 @@
             <div class="row">
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2  text-success border-bottom pb-3 border-light logo">Swim Lover</h2>
+                    <h2 class="h2  text-success border-bottom pb-3 border-light logo">SwimLover</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -27,13 +27,11 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">수영복</a></li>
                         <li><a class="text-decoration-none" href="#">수경</a></li>
                         <li><a class="text-decoration-none" href="#">수모</a></li>
                         <li><a class="text-decoration-none" href="#">오리발</a></li>
-                        <li><a class="text-decoration-none" href="#">수영가방</a></li>
-                        <li><a class="text-decoration-none" href="#">기타 용품</a></li>
-                        <li><a class="text-decoration-none" href="#">@@@</a></li>
+                        <li><a class="text-decoration-none" href="#">훈련용품</a></li>
+                        <li><a class="text-decoration-none" href="#">꿀템모음</a></li>
                     </ul>
                 </div>
 

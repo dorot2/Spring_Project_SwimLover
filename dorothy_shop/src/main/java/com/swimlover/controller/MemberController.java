@@ -195,5 +195,10 @@ public class MemberController {
 		 return "redirect:/" + url;
 	}
 	
+	@GetMapping("/uitest")
+	public void uitest() {
+		log.info("uitest");
+	}
+	
 	
 }
