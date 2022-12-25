@@ -256,6 +256,29 @@
 		    <version>4.1.0.RELEASE</version>
 		</dependency>
 		
+		<!-- 스프링 파일업로드 -->
+		<!-- 
+		1) Servlet 3.0 Multipart Request : 파일업로드 라이브러리가 필요없다. 업로드 관련 기능을 내부적으로 지원한다. (개발)
+		    - standardServletMultipartResolver
+		    - servlet-context.xml :
+		        <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+		    - web.xml
+		        <servlet>
+		            <multipart-config>
+		                <max-file-size>209715200</max-file-size>
+		                <max-request-size>209715200</max-request-size>
+		                <file-size-threshold>0</file-size-threshold>
+		            </multipart-config>
+		        </servlet>
+		-->
+		
+		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+		<!-- 썸네일 이미지 -->
+		<dependency>
+		    <groupId>net.coobird</groupId>
+		    <artifactId>thumbnailator</artifactId>
+		    <version>0.4.8</version>
+		</dependency>
 	
 		<!-- Test -->
 		<dependency>

@@ -45,6 +45,9 @@
     .p-2 {
   	    text-decoration:none;
     }
+    a {
+  	    text-decoration:none;
+    }
     .navbar {
         font-size : 25px;
     }
@@ -64,15 +67,24 @@
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
-                <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none">SwimLover : ${sessionScope.loginStatus.mem_nick}</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                </div>
+                <!-- 로그인 이전 상태표시 -->
+			    <c:if test="${sessionScope.loginStatus == null }">
+			    <a class="text-light" href="/member/login">LOGIN</a>
+			    <a class="text-light" href="/member/join">JOIN</a>
+			    </c:if>
+    
+    			<!-- 로그인 이후 상태표시 -->
+                <c:if test="${sessionScope.loginStatus != null }">
+			    <a class="text-light" href="/member/logout">LOGOUT</a>
+			    <a class="text-light" href="/member/confirmPW">MODIFY</a>
+			    </c:if>
+			    <a class="text-light" href="#">ORDER</a>
+			    <a class="text-light" href="#">MYPAGE</a>
+			    <a class="text-light" href="/cart/cart_list">CART</a>
+	               </div>
             </div>
         </div>
     </nav>

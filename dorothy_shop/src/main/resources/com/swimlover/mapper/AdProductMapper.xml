@@ -24,7 +24,7 @@
 		FROM
 			CATEGORY_TBL
 		WHERE
-			CATE_CODE_PRT = {#cate_code}
+			CATE_CODE_PRT = #{cate_code}
 	
 	</select>
 
