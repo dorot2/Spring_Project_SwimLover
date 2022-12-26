@@ -27,5 +27,14 @@
 			CATE_CODE_PRT = #{cate_code}
 	
 	</select>
+	
+	<insert id = "productInsert">
+	
+		INSERT INTO PRODUCT_TBL
+			(PDT_NUM, CATE_CODE, CATE_CODE_PRT, PDT_NAME, PDT_PRICE, PDT_DISCOUNT, PDT_COMPANY, PDT_DETAIL, PDT_IMG_FOLDER, PDT_IMG, PDT_AMOUNT, PDT_BUY)
+		VALUES
+			(SEQ_PRODUCT_NUM.NEXTVAL, #{cate_code}, #{cate_code_prt}, #{pdt_name}, #{pdt_price}, #{pdt_discount}, #{pdt_company}, #{pdt_detail}, #{pdt_img_folder}, #{pdt_img}, #{pdt_amount}, #{pdt_buy})
+	
+	</insert>
 
 </mapper>

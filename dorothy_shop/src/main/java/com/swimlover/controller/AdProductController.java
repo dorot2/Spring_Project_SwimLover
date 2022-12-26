@@ -43,6 +43,7 @@ public class AdProductController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
+	
 	// 상품등록페이지
 	@GetMapping("/productInsert")
 	public void productInsert(Model model) {
@@ -115,9 +116,15 @@ public class AdProductController {
 	@PostMapping("/productInsert")
 	public String productInsert(ProductVO vo, RedirectAttributes rttr) {
 		
-		FileUtils.uploadFile(uploadPath, vo.getUploadFile());
+		log.info("상품정보 : " + vo);
 		
+		String uploadDateFolderPath = FileUtils.getFoler();
+		String saveImageName = FileUtils.uploadFile(uploadPath, uploadDateFolderPath, vo.getUploadFile());
 		
+		vo.setPdt_img(saveImageName);
+		vo.setPdt_img_folder(uploadDateFolderPath);
+		
+		adProductService.productInsert(vo);		
 		return "redirect:/";
 	}
 	

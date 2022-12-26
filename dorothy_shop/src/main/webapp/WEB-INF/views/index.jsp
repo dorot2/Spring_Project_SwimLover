@@ -44,6 +44,7 @@
     }
     .p-2 {
   	    text-decoration:none;
+  	    word-spacing : 20px;
     }
     a {
   	    text-decoration:none;
@@ -62,32 +63,6 @@
 </head>
 
 <body>
-<!-- Start Top Nav -->    
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <a class="navbar-sm-brand text-light text-decoration-none">SwimLover : ${sessionScope.loginStatus.mem_nick}</a>
-                </div>
-                <div>
-                <!-- 로그인 이전 상태표시 -->
-			    <c:if test="${sessionScope.loginStatus == null }">
-			    <a class="text-light" href="/member/login">LOGIN</a>
-			    <a class="text-light" href="/member/join">JOIN</a>
-			    </c:if>
-    
-    			<!-- 로그인 이후 상태표시 -->
-                <c:if test="${sessionScope.loginStatus != null }">
-			    <a class="text-light" href="/member/logout">LOGOUT</a>
-			    <a class="text-light" href="/member/confirmPW">MODIFY</a>
-			    </c:if>
-			    <a class="text-light" href="#">ORDER</a>
-			    <a class="text-light" href="#">MYPAGE</a>
-			    <a class="text-light" href="/cart/cart_list">CART</a>
-	               </div>
-            </div>
-        </div>
-    </nav>
 	
 	<%@include file="/WEB-INF/views/include/header.jsp" %>
 	<%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>

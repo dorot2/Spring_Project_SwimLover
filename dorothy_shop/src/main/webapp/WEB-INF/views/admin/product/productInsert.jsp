@@ -78,7 +78,7 @@ desired effect
      		<div class="box box-primary">
      			<form id="productForm" action="productInsert" method="post" enctype="multipart/form-data">
      			<div class="box-header">
-     				REGISTER PRODUCT
+     				상품등록
      			</div>
      			<div class="box-body">	
 					  <div class="form-group row">

@@ -14,12 +14,12 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class FileUtils {
 	
 	// 파일업로드 작업.
-	public static String uploadFile(String uploadFolder, MultipartFile uploadFile) {
+	public static String uploadFile(String uploadFolder, String uploadDateFolderPath, MultipartFile uploadFile) {
 		
 		String uploadFileName = ""; // 실제 업로드한 파일명
 		
 		// File 클래스 : 파일과 폴더 작업 목적
-		File uploadPath = new File(uploadFolder);
+		File uploadPath = new File(uploadFolder, uploadDateFolderPath);
 		
 		// 폴더 존재여부
 		if(uploadPath.exists() == false) {
