@@ -2,11 +2,16 @@ package com.swimlover.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import net.coobird.thumbnailator.Thumbnailator;
@@ -82,5 +87,25 @@ public class FileUtils {
 		}
 		
 		return isImage;
+	}
+	
+	// 상품이미지를 바이트배열로 읽어오는 작업
+	public static ResponseEntity<byte[]> getFile(String uploadPath, String fileName) throws IOException {
+		
+		ResponseEntity<byte[]> entity = null;
+		
+		File file = new File(uploadPath, fileName);
+		
+		// 상품이미지가 존재하지 않을 경우
+		if(!file.exists()) {
+			return entity;
+		}
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", Files.probeContentType(file.toPath()));
+		
+		entity = new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(file), headers, HttpStatus.OK);
+		
+		return entity;
 	}
 }

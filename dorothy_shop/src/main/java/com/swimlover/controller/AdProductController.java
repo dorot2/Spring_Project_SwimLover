@@ -2,6 +2,7 @@ package com.swimlover.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
@@ -16,15 +17,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.swimlover.domain.CategoryVO;
 import com.swimlover.domain.ProductVO;
+import com.swimlover.dto.Criteria;
+import com.swimlover.dto.PageDTO;
 import com.swimlover.service.AdProductService;
 import com.swimlover.util.FileUtils;
 
@@ -124,11 +129,38 @@ public class AdProductController {
 		vo.setPdt_img(saveImageName);
 		vo.setPdt_img_folder(uploadDateFolderPath);
 		
-		adProductService.productInsert(vo);		
-		return "redirect:/";
+		adProductService.productInsert(vo);	
+		
+		rttr.addFlashAttribute("msg", "상품등록이 성공하였습니다.");
+		return "redirect:/admin/product/productList";
+	}
+	
+	// 상품목록(페이징, 검색추가)
+	@GetMapping("/productList")
+	public void productList(@ModelAttribute("cri") Criteria cri, Model model) {
+		
+		List<ProductVO> productList = adProductService.getProductList(cri);
+		
+		productList.forEach(vo -> {
+			vo.setPdt_img_folder(vo.getPdt_img_folder().replace("\\", "/"));
+		});
+		
+		model.addAttribute("productList", productList);
+		
+		int totalCount = adProductService.getProductTotalCount(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, totalCount));
+		
 	}
 	
 	
-	
-	
+	// 상품목록에서 이미지 보여주기
+	@ResponseBody
+	@GetMapping("/displayFile")
+	public ResponseEntity<byte[]> displayFile(String folderName, String fileName) throws IOException {
+		
+		ResponseEntity<byte[]> entity = null;
+		
+		return FileUtils.getFile(uploadPath + folderName, fileName);
+	}
+
 }

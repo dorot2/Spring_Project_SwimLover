@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.swimlover.domain.CategoryVO;
 import com.swimlover.domain.ProductVO;
+import com.swimlover.dto.Criteria;
 
 public interface AdProductMapper {
 
@@ -15,4 +16,10 @@ public interface AdProductMapper {
 	
 	// 상품정보 저장
 	void productInsert(ProductVO vo);
+	
+	// 상품목록
+	List<ProductVO> getProductList(Criteria cri);
+	
+	// 상품개수
+	int getProductTotalCount(Criteria cri);
 }

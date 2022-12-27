@@ -29,11 +29,12 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		
-		<!-- 이미지 업로드 사이즈 -->
+<!-- 		파일업로드 설정. WAS(Tomcat)자체 설정 -->
 		<multipart-config>
-                <max-file-size>209715200</max-file-size>
-                <max-request-size>209715200</max-request-size>
-                <file-size-threshold>0</file-size-threshold>
+			<location>C:\\dorothydatabase\\upload\\tmp</location>
+			<max-file-size>20971520</max-file-size><!-- 20mb -->
+			<max-request-size>41943040</max-request-size><!--  40mb -->
+			<file-size-threshold>20971520</file-size-threshold><!-- 20mb -->
         </multipart-config>
             
 	</servlet>

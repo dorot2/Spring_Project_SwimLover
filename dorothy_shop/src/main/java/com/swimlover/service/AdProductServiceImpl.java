@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.swimlover.domain.CategoryVO;
 import com.swimlover.domain.ProductVO;
+import com.swimlover.dto.Criteria;
 import com.swimlover.mapper.AdProductMapper;
 
 import lombok.Setter;
@@ -32,5 +33,17 @@ public class AdProductServiceImpl implements AdProductService {
 	public void productInsert(ProductVO vo) {
 		// TODO Auto-generated method stub
 		adProductMapper.productInsert(vo);
+	}
+
+	@Override
+	public List<ProductVO> getProductList(Criteria cri) {
+		// TODO Auto-generated method stub
+		return adProductMapper.getProductList(cri);
+	}
+
+	@Override
+	public int getProductTotalCount(Criteria cri) {
+		// TODO Auto-generated method stub
+		return adProductMapper.getProductTotalCount(cri);
 	}
 }
