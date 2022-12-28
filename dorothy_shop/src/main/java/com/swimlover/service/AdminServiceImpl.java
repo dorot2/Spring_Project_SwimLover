@@ -21,4 +21,10 @@ public class AdminServiceImpl implements AdminService {
 		return adminMapper.admin_ok(admin_id);
 	}
 
+	@Override
+	public void login_update(String admin_id) {
+		// TODO Auto-generated method stub
+		adminMapper.login_update(admin_id);
+	}
+
 }

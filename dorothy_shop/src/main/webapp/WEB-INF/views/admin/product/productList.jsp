@@ -279,14 +279,40 @@ desired effect
     // 수정버튼 클릭
     $("button[name = 'btnProductEdit']").on("click", function() {
     	
-    	actionForm.append("<input type = 'hidden' name = 'pdt_num' value = '" + $(this).data("pdt_num") + "'>");
-    	actionForm.attr("method", "get");
-    	actionForm.attr("action", "/admin/product/productModify");
-    	actionForm.submit();
+      //브라우저 뒤로가기에 의한 파라미터 중복추가부분을 방지하기위하여, 제거작업
+      actionForm.find("input[name='pdt_num']").remove();
+      actionForm.find("input[name='cate_code_prt']").remove();
+      actionForm.find("input[name='cate_code']").remove();
+
+      // 상품코드
+      actionForm.append("<input type = 'hidden' name = 'pdt_num' value = '" + $(this).data("pdt_num") + "'>");
+      // 1차 카테고리 코드
+      actionForm.append("<input type = 'hidden' name = 'cate_code_prt' value = '" + $(this).siblings("input[name='cate_code_prt']").val() + "'>");
+      // 2차 카테고리 코드
+      actionForm.append("<input type = 'hidden' name = 'cate_code' value= '" + $(this).siblings("input[name='cate_code']").val() + "'>");
+
+      actionForm.attr("method", "get");
+      actionForm.attr("action", "/admin/product/productModify");
+      actionForm.submit();
 
     });
 
-  })
+    // 삭제버튼 클릭
+    $("button[name = 'btnProductDelete']").on("click", function(){
+
+      if(!confirm("현재 상품을 삭제하시겠습니까?")) return;
+
+      // 브라우저 뒤로가기에 의한 파라미터 중복추가부분을 방지하기 위하여, 제거작업
+      actionForm.find("input[name='pdt_num']").remove();
+
+      // 상품코드
+      actionForm.append("<input type = 'hidden' name ='pdt_num' value = '" + $(this).data("pdt_num") + "'>");
+      actionForm.attr("method", "get");
+      actionForm.attr("action", "/admin/product/productDelete");
+      actionForm.submit();
+    });
+
+  });
 </script>
 </body>
 </html>

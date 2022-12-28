@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.swimlover.mapper.ProductMapper">
+
+	<select id = "getCategoryList" resultType="com.swimlover.domain.CategoryVO">
+	
+		SELECT
+			CATE_CODE,
+			CATE_CODE_PRT,
+			CATE_NAME
+		FROM
+			CATEGORY_TBL
+		WHERE
+			CATE_CODE_PRT IS NULL
+	
+	</select>
+	
+	<select id = "getSubCategoryList" resultType="com.swimlover.domain.CategoryVO">
+	
+		SELECT
+			CATE_CODE,
+			CATE_CODE_PRT,
+			CATE_NAME
+		FROM
+			CATEGORY_TBL
+		WHERE
+			CATE_CODE_PRT = #{cate_code}
+	
+	</select>
+
+</mapper>

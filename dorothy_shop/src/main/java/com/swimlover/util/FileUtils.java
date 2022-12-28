@@ -108,4 +108,14 @@ public class FileUtils {
 		
 		return entity;
 	}
+	
+	// 파일 삭제
+	public static void deleteFile(String uploadPath, String folder, String fileName) {
+		
+		// 원본이미지 삭제
+		new File((uploadPath + folder + "/" + fileName).replace('/', File.separatorChar)).delete();
+		// 썸네일 이미지 삭제
+		new File((uploadPath + folder + "/" + "s_" + fileName).replace('/', File.separatorChar)).delete();
+		
+	}
 }

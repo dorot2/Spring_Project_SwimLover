@@ -31,7 +31,6 @@
           <!-- User Account Menu -->
           
           <!-- Control Sidebar Toggle Button -->
-          
           <li>최근 접속시간: <fmt:formatDate value="${sessionScope.adminStatus.admin_date_late}" pattern="yyyy-MM-dd HH:ss"/></li>
           <li><a href="/admin/logout">로그아웃</a></li>
         </ul>

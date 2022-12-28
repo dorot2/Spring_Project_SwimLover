@@ -46,4 +46,22 @@ public class AdProductServiceImpl implements AdProductService {
 		// TODO Auto-generated method stub
 		return adProductMapper.getProductTotalCount(cri);
 	}
+
+	@Override
+	public ProductVO getProductByNum(Integer pdt_num) {
+		// TODO Auto-generated method stub
+		return adProductMapper.getProductByNum(pdt_num);
+	}
+
+	@Override
+	public void productModify(ProductVO vo) {
+		// TODO Auto-generated method stub
+		adProductMapper.productModify(vo);
+	}
+
+	@Override
+	public void productDelete(Integer pdt_num) {
+		// TODO Auto-generated method stub
+		adProductMapper.productDelete(pdt_num);
+	}
 }

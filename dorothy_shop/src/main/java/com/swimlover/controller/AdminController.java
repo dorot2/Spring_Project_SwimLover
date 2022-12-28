@@ -74,7 +74,7 @@ public class AdminController {
 	@GetMapping("/logout")
 	public String logout(HttpSession session, RedirectAttributes rttr) {
 		
-		session.invalidate();
+		session.invalidate(); // 세션소멸
 		
 		return "redirect:/admin/";
 	}

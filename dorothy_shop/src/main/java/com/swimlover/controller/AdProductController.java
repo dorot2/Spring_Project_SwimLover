@@ -162,5 +162,63 @@ public class AdProductController {
 		
 		return FileUtils.getFile(uploadPath + folderName, fileName);
 	}
+	
+	// 상품수정 페이지
+	@GetMapping("/productModify")
+	public void modify(@RequestParam("cate_code_prt") Integer cate_code_prt, @RequestParam("cate_code")Integer cate_code,
+						@RequestParam("pdt_num") Integer pdt_num, @ModelAttribute("cri") Criteria cri, Model model) {
+		
+		// 1) 1차 카테고리 목록작업
+		List<CategoryVO> cateList = adProductService.getCategoryList();
+		model.addAttribute("cateList", cateList);
+		
+		// 2) 2차 카테고리 목록
+		List<CategoryVO> subCateList = adProductService.getSubCategoryList(cate_code_prt);
+		model.addAttribute("subCateList",subCateList);
+		
+		// 3) 수정상품정보 읽어오기.
+		ProductVO vo = adProductService.getProductByNum(pdt_num);
+		vo.setPdt_img_folder(vo.getPdt_img_folder().replace("\\", "/"));
+		model.addAttribute("productVO", vo);
+	}
+	
+	// 상품수정하기
+	@PostMapping("/productModify")
+	public String productModify(ProductVO vo, Criteria cri,RedirectAttributes rttr) {
+		
+		// 이미지 변경 업로드
+		if(!vo.getUploadFile().isEmpty()) {
+			
+			// 1) 기존이미지 삭제
+			
+			// 파라미터
+			FileUtils.deleteFile(uploadPath, vo.getPdt_img_folder(), vo.getPdt_img());
+			
+			// 2) 새 상품이미지 업로드
+			String uploadDateFolderPath = FileUtils.getFoler();
+			String saveImageName = FileUtils.uploadFile(uploadPath, uploadDateFolderPath, vo.getUploadFile());
+			// 3) DB에 저장될 이미지 관련정보
+			vo.setPdt_img(saveImageName); // DB에 저장될 업로드 파일명
+			vo.setPdt_img_folder(uploadDateFolderPath); // 날짜폴더명
+		}
+		
+		// 4) 상품수정
+		adProductService.productModify(vo);
+	
+		rttr.addFlashAttribute("msg", "상품 정보가 수정되었습니다.");
+		
+		return "redirect:/admin/product/productList" + cri.getListLink();
+	}
+	
+	// 상품 삭제하기
+	@GetMapping("/productDelete")
+	public String productDelete(@RequestParam("pdt_num") Integer pdt_num, Criteria cri, RedirectAttributes rttr) {
+		
+		adProductService.productDelete(pdt_num);
+		
+		rttr.addFlashAttribute("msg", "상품 정보가 삭제되었습니다.");
+		
+		return "redirect:/admin/product/productList" + cri.getListLink();
+	}
 
 }

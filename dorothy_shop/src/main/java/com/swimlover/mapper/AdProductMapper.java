@@ -22,4 +22,13 @@ public interface AdProductMapper {
 	
 	// 상품개수
 	int getProductTotalCount(Criteria cri);
+	
+	// 상품수정정보 가져오기
+	ProductVO getProductByNum(Integer pdt_num);
+	
+	// 상품 수정하기
+	void productModify(ProductVO vo);
+	
+	// 상품 삭제하기
+	void productDelete(Integer pdt_num);
 }

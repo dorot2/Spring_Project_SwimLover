@@ -17,4 +17,10 @@ public interface AdProductService {
 	List<ProductVO> getProductList(Criteria cri);
 		
 	int getProductTotalCount(Criteria cri);
+
+	ProductVO getProductByNum(Integer pdt_num);
+
+	void productModify(ProductVO vo);
+	
+	void productDelete(Integer pdt_num);
 }
