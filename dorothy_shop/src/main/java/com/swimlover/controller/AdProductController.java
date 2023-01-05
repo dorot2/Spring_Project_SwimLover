@@ -165,7 +165,7 @@ public class AdProductController {
 	
 	// 상품수정 페이지
 	@GetMapping("/productModify")
-	public void modify(@RequestParam("cate_code_prt") Integer cate_code_prt, @RequestParam("cate_code")Integer cate_code,
+	public void modify(@ModelAttribute("cate_code_prt") Integer cate_code_prt, @ModelAttribute("cate_code")Integer cate_code,
 						@RequestParam("pdt_num") Integer pdt_num, @ModelAttribute("cri") Criteria cri, Model model) {
 		
 		// 1) 1차 카테고리 목록작업

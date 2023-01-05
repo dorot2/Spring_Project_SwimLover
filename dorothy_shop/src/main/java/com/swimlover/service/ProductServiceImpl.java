@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.swimlover.domain.CategoryVO;
+import com.swimlover.domain.ProductVO;
+import com.swimlover.dto.Criteria;
 import com.swimlover.mapper.ProductMapper;
 
 @Service
@@ -16,14 +18,22 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<CategoryVO> getCategoryList() {
-		// TODO Auto-generated method stub
 		return productMapper.getCategoryList();
 	}
 
 	@Override
 	public List<CategoryVO> getSubCategoryList(Integer cate_code) {
-		// TODO Auto-generated method stub
 		return productMapper.getSubCategoryList(cate_code);
+	}
+
+	@Override
+	public List<ProductVO> getProductListbysubCategory(Integer cate_code, Criteria cri) {
+		return productMapper.getProductListbysubCategory(cate_code, cri);
+	}
+
+	@Override
+	public int getProductCountbysubCategory(Integer cate_code, Criteria cri) {
+		return productMapper.getProductCountbysubCategory(cate_code, cri);
 	}
 	
 	

@@ -21,7 +21,7 @@ public class GlobalControllerAdvice {
 	public void categoryList(Model model) {
 		
 		List<CategoryVO> cateList = productService.getCategoryList();
-		model.addAttribute("", cateList);
+		model.addAttribute("mainCateList", cateList);
 	}
 
 }
