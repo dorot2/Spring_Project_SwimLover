@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <!-- 부트스트랩 적용 : https://themewagon.com/themes/free-bootstrap-5-html-5-ecommerce-website-template-zay-shop/ -->
@@ -96,14 +97,13 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-        </c:forEach>  
-        <%@include file="/WEB-INF/views/include/footer.jsp" %>
+        </c:forEach>
       </div>
     </div>
 
+	<%@include file="/WEB-INF/views/include/footer.jsp" %>
     <script>
       $(document).ready(function(){
 

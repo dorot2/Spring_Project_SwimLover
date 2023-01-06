@@ -1,6 +1,9 @@
 package com.swimlover.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +21,7 @@ import com.swimlover.domain.ProductVO;
 import com.swimlover.dto.Criteria;
 import com.swimlover.dto.PageDTO;
 import com.swimlover.service.ProductService;
+import com.swimlover.util.FileUtils;
 
 import lombok.extern.log4j.Log4j;
 
@@ -28,6 +32,10 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	// 업로드 폴더 주입
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 	
 	// 1차 카테고리를 참조하는 2차 카테고리 목록
 	@ResponseBody
@@ -71,7 +79,13 @@ public class ProductController {
 	}
 	
 
-	
+	// 상품목록에서 이미지 보여주기.
+	@ResponseBody
+	@GetMapping("/displayFile")
+	public ResponseEntity<byte[]> displayFile(String folderName, String fileName) throws IOException {
+		
+		return FileUtils.getFile(uploadPath + folderName,  fileName);
+	}
 	
 	
 }

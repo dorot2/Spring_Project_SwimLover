@@ -146,9 +146,10 @@
           </div>
         </div>
       </div>
-        <%@include file="/WEB-INF/views/include/footer.jsp" %>
     </div>
 
+	<%@include file="/WEB-INF/views/include/footer.jsp" %>
+	
     <script>
       $(document).ready(function(){
 
@@ -295,8 +296,24 @@
             }
           });
         });
+        
+        // 주문하기
+        $("button[name='btnOrder']").on("click", function(){
+        	location.href = "/order/orderListInfo?type=cart";
+        });
       });   
+      	
       
+      //sum_price가격 변경
+      function fn_sum_price() {
+          
+        let sum_price = 0;
+        $("table#cartlist span.sales_price").each(function(index, item){
+          sum_price += parseInt($.withoutCommas($(item).text()));  
+        });
+        
+        $("span#sum_price").text($.numberWithCommas(sum_price)); 
+      }
       
       
     </script>
