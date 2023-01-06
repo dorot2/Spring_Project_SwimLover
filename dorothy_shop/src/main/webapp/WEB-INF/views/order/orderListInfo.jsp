@@ -383,10 +383,35 @@
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
       
+      // 카카오페이 결제버튼 클릭. ajax 요청
+      $("#kakao_pay").on("click", function(){
+    	e.preventDefault();
+    	
+    	let odr_total_price = $("input[name = 'odr_total_price']").val();
+      	
+    	$.ajax({
+    		url : '/order/orderPay',
+    		data : {
+    			totalamount : odr_total_price,
+    			
+    			odr_name : $("input[name='odr_name']").val(),
+    			odr_addr : $("input[name='odr_addr']").val(),
+    			odr_addr_d : $("input[name='odr_addr_d']").val(),
+    			odr_phone : $("input[name='odr_phone']").val(),
+    			odr_total_price : odr_total_price,
+    			
+    			pay_method : $("#pay_method option:selected").val(),
+    			pay_tot_price : odr_total_price,
+    		},
+    		type : 'get',
+    		success : function(response) {
+    			alert(response.next_redirect_pc_url);
+    			location.href = response.next_redirect_pc_url;
+    		}
+    	});
+      });
       
-
-
-    }); // ready() 끝
+ }); // ready() 끝
 
     //sum_price가격 변경
     
