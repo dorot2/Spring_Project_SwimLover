@@ -35,6 +35,11 @@ public class ProductServiceImpl implements ProductService {
 	public int getProductCountbysubCategory(Integer cate_code, Criteria cri) {
 		return productMapper.getProductCountbysubCategory(cate_code, cri);
 	}
+
+	@Override
+	public ProductVO getProductDetail(Integer pdt_num) {
+		return productMapper.getProductDetail(pdt_num);
+	}
 	
 	
 	

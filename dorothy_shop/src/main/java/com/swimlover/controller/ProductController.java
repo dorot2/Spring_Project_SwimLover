@@ -77,7 +77,6 @@ public class ProductController {
 		return "/product/productList"; 
 		
 	}
-	
 
 	// 상품목록에서 이미지 보여주기.
 	@ResponseBody
@@ -85,6 +84,17 @@ public class ProductController {
 	public ResponseEntity<byte[]> displayFile(String folderName, String fileName) throws IOException {
 		
 		return FileUtils.getFile(uploadPath + folderName,  fileName);
+	}
+	
+	// 상품상세
+	@GetMapping("/productDetail")
+	public void productDetail(Integer pdt_num, Model model) {
+		
+		ProductVO productVO = productService.getProductDetail(pdt_num);
+		
+		productVO.setPdt_img_folder(productVO.getPdt_img_folder().replace("\\", "/"));
+
+		model.addAttribute("productVO", productVO);
 	}
 	
 	

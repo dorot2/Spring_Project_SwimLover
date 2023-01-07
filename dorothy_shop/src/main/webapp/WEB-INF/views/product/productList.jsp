@@ -139,6 +139,15 @@
         	location.href = url;
         	
         });
+
+        // 상품이미지 클릭
+        $("a.proDetail").on("click", function(e){
+
+          e.preventDefault();
+          let pdt_num = $(this).attr("href");
+
+          location.href = "/product/productDetail?pdt_num=" + pdt_num;
+        });
       });
     </script>
   </body>

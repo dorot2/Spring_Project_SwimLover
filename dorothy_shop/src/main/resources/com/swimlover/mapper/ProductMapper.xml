@@ -86,6 +86,18 @@
 	
 	</select>
 	
+	<select id = "getProductDetail" resultType = "com.swimlover.domain.ProductVO">
+	
+		SELECT
+			PDT_NUM, CATE_CODE, CATE_CODE_PRT, PDT_NAME, PDT_PRICE,
+			PDT_DISCOUNT, PDT_COMPANY, PDT_DETAIL, PDT_IMG_FOLDER,
+			PDT_IMG, PDT_AMOUNT, PDT_BUY, PDT_DATE_SUB, PDT_DATE_UP
+		FROM
+			PRODUCT_TBL
+		WHERE
+			PDT_NUM = #{pdt_num}
+	
+	</select>
 	
 
 </mapper>

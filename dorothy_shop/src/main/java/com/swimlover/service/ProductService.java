@@ -18,4 +18,5 @@ public interface ProductService {
 	
 	int getProductCountbysubCategory(Integer cate_code, Criteria cri);
 	
+	ProductVO getProductDetail(Integer pdt_num);
 }

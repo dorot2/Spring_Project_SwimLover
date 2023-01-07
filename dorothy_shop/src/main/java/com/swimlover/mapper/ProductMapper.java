@@ -22,4 +22,7 @@ public interface ProductMapper {
 	// 2차 카테고리를 참조하는 상품목록의 개수
 	int getProductCountbysubCategory(@Param("cate_code") Integer cate_code, @Param("cri") Criteria cri);
 	
+	// 상품상세정보
+	ProductVO getProductDetail(Integer pdt_num);
+	
 }
