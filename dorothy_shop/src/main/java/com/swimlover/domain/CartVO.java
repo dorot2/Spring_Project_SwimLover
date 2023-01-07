@@ -1,8 +1,10 @@
 package com.swimlover.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class CartVO {
 
 	private Long cart_code;

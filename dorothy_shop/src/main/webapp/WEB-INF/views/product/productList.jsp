@@ -124,6 +124,21 @@
             
           });
         });
+        
+        // 바로구매 클릭
+        $("button[name='btnDirectOrder']").on("click", function(){
+        	
+        	// 주문작성 페이지
+        	// 상품코드, 수량 : 기본값 1
+        	let pdt_num = $("input[name='pdt_num']").val();
+        	let odr_amount = 1;
+        	
+        	let url = "/order/orderListInfo?pdt_num=" + pdt_num + "&odr_amount=" + odr_amount + "&type=direct";
+        	
+        	console.log("주문작성 URL : " + url);
+        	location.href = url;
+        	
+        });
       });
     </script>
   </body>

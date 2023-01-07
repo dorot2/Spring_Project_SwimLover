@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.swimlover.domain.CartVO;
 import com.swimlover.domain.CartVOList;
+import com.swimlover.domain.OrderDetailVO;
 import com.swimlover.domain.OrderVO;
 import com.swimlover.domain.PaymentVO;
 import com.swimlover.mapper.CartMapper;
@@ -47,6 +49,35 @@ public class OrderServiceImpl implements OrderService {
 		// 4) 장바구니 비우기
 		cartMapper.cart_empty(o_vo.getMem_id());
 	}
+	
+	// 상품리스트에서 바로구매
+	@Transactional
+	@Override
+	public void orderDirectSave(OrderVO o_vo, OrderDetailVO od_vo, PaymentVO p_vo) {
+		// 1) 주문정보 저장하기
+		orderMapper.orderSave(o_vo);
+		
+		// 2) 주문상세 저장하기
+		orderMapper.orderDirectDetailSave(od_vo);
+
+		// 3) 결제정보 저장하기
+		p_vo.setOdr_code(o_vo.getOdr_code());
+		orderMapper.paymentSave(p_vo);
+		
+	}
+
+	@Override
+	public CartVOList directOrder(CartVO vo) {
+		return orderMapper.directOrder(vo);
+	}
+	
+	@Override
+	public long getOrderSequence() {
+		return orderMapper.getOrderSequence();
+	}
+
+
+
 	
 	
 }
