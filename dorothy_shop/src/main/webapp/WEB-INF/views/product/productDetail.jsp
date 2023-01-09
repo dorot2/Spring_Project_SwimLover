@@ -180,9 +180,10 @@
 </div>
 
 	<%@include file="/WEB-INF/views/include/footer.jsp" %>
+    
     <script>
       $(document).ready(function(){
-
+    	  
         // 장바구니 클릭
         $("button[name='btnCart']").on("click", function(){
 
@@ -207,7 +208,7 @@
         	// 주문작성 페이지
         	// 상품코드, 수량 : 기본값 1
         	let pdt_num = $("input[name='pdt_num']").val();
-        	let odr_amount = 1;
+        	let odr_amount = $("input[name='odr_amount']").val();
         	
         	let url = "/order/orderListInfo?pdt_num=" + pdt_num + "&odr_amount=" + odr_amount + "&type=direct";
         	
@@ -224,7 +225,301 @@
         	$(this).addClass("on").prevAll("a").addClass("on");
         });
         
+        // 상품후기 쓰기
+        $("#btn_review_write").on("click", function(){
+        	
+        	let rv_score = 0;
+        	let rv_content = $("#rv_content").val();
+        
+        	$("p#star_rv_score a.rv_score").each(function(index, item) {
+        		if($(this).attr("class") == "rv_score on") {
+        			rv_score += 1;
+        		}
+        	});
+        	
+        	if(rv_score == 0) {
+        		alert("별 평점을 선택해주세요.");
+        		return;
+        	}
+        	
+        	if(rv_content == "") {
+        		alert("상품 후기를 입력하세요");
+        		return;
+        	}
+        	
+        	// JavaScript Object 문법
+        	let review_data = {pdt_num : $("input[name = 'pdt_num']").val(), rv_content : rv_content, rv_score : rv_score };
+			
+        	$.ajax({
+        		url : '/review/new',
+        		headers: {
+                    "Content-Type" : "application/json", "X-HTTP-Method-Override" : "POST"
+                  }, 
+                  type: 'post',
+                  dataType : 'text',
+                  data: JSON.stringify(review_data),  // JSON문자열
+                  success : function(result) {
+                    if(result == 'success') {
+                      alert("상품후기가 등록됨");
+                      getPage(url);
+
+                      // 초기화
+                      $("p#star_rv_score a.rv_score").removeClass("on");
+                      $("#rv_content").val("");
+                      /*
+                      $("#btn_review_edit").parent().find("input[name='rv_num']").remove();
+                      $("#btn_review_edit").hide();
+                      $("#btn_review_write").show();
+                      */
+                    }
+                  }
+                });
+        });
+        
       });
+      
+      
+      //상품댓글 목록요청
+      
+      let reviewPage = 1;  //상품후기 페이지번호
+      let url = "/review/list/" + $("input[name='pdt_num']").val() + "/" + reviewPage;
+
+      getPage(url);
+
+
+      function getPage(pageInfo) {
+
+        console.log("url: " + pageInfo);
+
+        $.getJSON(pageInfo, function(data) {
+
+          //console.log("댓글목록: " + data.list);
+          //console.log("댓글페이징정보: " + data.pageMaker);
+          printReviewList(data.list, $("div#reviewList div#reviewItem"), $("#reviewTemplate"));
+          printreviewPaging(data.pageMaker, $("div#reviewPaging  ul.pagination"));
+        });
+      }
+      
+      // 1) 상품후기 목록 출력 함수
+      let printReviewList = function(reviewData, target, templateObj) {
+    	  
+    	  let template = Handlebars.compile(templateObj.html());
+    	  
+    	  let reviewHtml = template(reviewData);
+    	  
+    	  target.children().remove();
+    	  target.append(reviewHtml);
+      }
+      
+      // 상품후기 등록일 날짜 출력
+      // 사용자정의 Helper 함수. 템플릿에서 호출
+      Handlebars.registerHelper("prettifyDate", function(timeValue) {
+    	 
+    	  let dateObj = new Date(timeValue);
+    	  let year = dateObj.getFullYear();
+    	  let month = dateObj.getMonth() + 1;
+    	  let date = dateObj.getDate();
+    	  let hour = dateObj.getHours();
+    	  let minute = dateObj.getMinutes();
+    	  
+    	  return year + "/" + month + "/" + date + " " + hour + ":" + minute;
+    	  
+      });
+      
+      // 평점 별표시하기
+      Handlebars.registerHelper("displayStar", function(rating){
+    	 
+    	  let starStr = "";
+    	  switch(rating) {
+    	  	case 1:
+    		  starStr =  "★☆☆☆☆";
+              break;
+            case 2:
+              starStr = "★★☆☆☆";
+              break;
+            case 3:
+              starStr = "★★★☆☆";
+              break;
+            case 4:
+              starStr = "★★★★☆";
+              break;
+            case 5:
+              starStr = "★★★★★";
+              break;
+    	  }
+    	  return starStr;
+      });
+      
+      // 아이디 3글자 표시하기
+      Handlebars.registerHelper("idThreeDisplay", function(userid) {
+    	  return userid.substring(0, 3) + "****";
+      });
+      
+      // 댓글작성자와 로그인이 동일한 경우 수정, 삭제버튼 표시
+      Handlebars.registerHelper("authorityview", function(mem_id, rv_num){
+    	
+    	  let str = "";
+    	  let login_id = '${sessionScope.loginStatus.mem_id}';
+    	  if(mem_id == login_id) {
+    		  str += "<button type = 'button' class = 'btn btn-link' name = 'review_edit' data-rv_num='" + rv_num + "'>[edit]</button>";
+    		  str += "<button type = 'button' class = 'btn btn-link' name = 'review_delete' data-rv_num='" + rv_num + "'>[delete]</button>";
+    	  }
+    	  return new Handlebars.SafeString(str);
+      });
+      
+      // 2)상품후기 페이징 출력 함수
+      let printreviewPaging = function(pageMaker, target) {
+    	  let pagingStr = "";
+    	  
+    	  // 이전표시.
+    	  if(pageMaker.prev) {
+    		  pagingStr += "<li class='page-item'><a class='page-link' href='" +  (pageMaker.startPage - 1) + "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+          }
+
+          //페이지번호 표시
+          for(let i=pageMaker.startPage; i<=pageMaker.endPage; i++) {
+            let classStr = pageMaker.cri.pageNum == i ? "active" : "";
+            pagingStr += "<li class='page-item " + classStr + "'><a class='page-link' href='" + i + "'>" + i + "</a></li>";
+          }
+
+          //다음표시. pageMaker.endPage + 1
+          if(pageMaker.next) {
+            pagingStr += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
+          }
+          
+          target.children().remove();
+          target.append(pagingStr);
+      }
+  </script>
+  <script>
+  $(document).ready(function(){
+
+      // 이전, 페이지번호, 다음 클릭
+      $("nav ul.pagination").on("click", "li a.page-link", function(e){
+        e.preventDefault();
+        console.log("페이지번호");
+        
+        reviewPage = $(this).attr("href"); // 현재 선택한 페이지번호
+        url = "/review/list/" + $("input[name='pdt_num']").val() + "/" + reviewPage;
+
+        getPage(url);
+      });
+
+      //상품후기 삭제
+      $("div#reviewList div#reviewItem").on("click", "button[name='review_delete']", function() {
+        
+
+        let rv_num = $(this).data("rv_num");
+
+        if(!confirm("상품후기 " + rv_num + " 번을 삭제하시겠습까?")) return;
+
+        console.log("상품후기 번호: " + rv_num);
+
+        $.ajax({
+          url: '/review/delete/' + rv_num,
+          headers: {
+            "Content-Type" : "application/json", "X-HTTP-Method-Override" : "DELETE"
+          },
+          type: 'delete',
+          dataType: 'text',
+          success: function(result) {
+            if(result == "success") {
+              alert("상품후기가 삭제됨");
+
+              url = "/review/list/" + $("input[name='pdt_num']").val() + "/" + reviewPage;
+              getPage(url);
+            }
+          }
+        });
+      });
+
+      //상품후기 수정폼.  review_edit
+      $("div#reviewList div#reviewItem").on("click", "button[name='review_edit']", function() {
+
+        $("#btn_review_write").hide();
+        $("#btn_review_edit").show();
+
+        
+        let rv_score = $(this).parent().parent().find("input[name='rv_score']").val();
+        let rv_num = $(this).data("rv_num");
+        let rv_content = $(this).parent().parent().prev().prev().html();
+
+        console.log("별평점: " + rv_score);
+        console.log("상품후기 번호: " + rv_num);
+        console.log("후기내용: " + rv_content );
+
+        $("textarea#rv_content").val(rv_content);
+
+        $("textarea#rv_content").parent().find("input[name='rv_num']").remove();
+        $("textarea#rv_content").parent().append("<input type='text' name='rv_num' id='rv_num' readonly value='" + rv_num + "'>");
+        
+        $("#star_rv_score a.rv_score").each(function(index, item) {
+          if(index < rv_score) {
+            $(item).addClass("on");
+          }else {
+            $(item).removeClass("on");
+          }
+        });
+
+
+      });
+
+      //상품후기 수정하기
+      $("#btn_review_edit").on("click", function() {
+
+        let rv_score = 0;
+        let rv_content = $("#rv_content").val();
+
+        $("p#star_rv_score a.rv_score").each(function(index, item) {
+          if($(this).attr("class") == "rv_score on") {
+            rv_score += 1;
+          }
+        });
+
+        if(rv_score == 0) {
+          alert("별 평점을 선택해주세요.");
+          return;
+        }
+
+        if(rv_content == "") {
+          alert("상품후기를 입력하세요");
+          return;
+        }
+
+        // JavaScript Object문법
+        let review_data = { rv_num : $("input[name='rv_num']").val() , rv_content : rv_content, rv_score: rv_score };
+
+        $.ajax({
+          url: '/review/modify',
+          headers: {
+            "Content-Type" : "application/json", "X-HTTP-Method-Override" : "PATCH"
+          }, 
+          type: 'patch',
+          dataType : 'text',
+          data: JSON.stringify(review_data),  // JSON문자열
+          success : function(result) {
+            if(result == 'success') {
+              alert("상품후기가 수정됨");
+
+              url = "/review/list/" + $("input[name='pdt_num']").val() + "/" + reviewPage;
+              getPage(url);
+
+
+              // 초기화
+              $("p#star_rv_score a.rv_score").removeClass("on");
+              $("#rv_content").val("");
+              $("#btn_review_edit").parent().find("input[name='rv_num']").remove();
+              $("#btn_review_edit").hide();
+              $("#btn_review_write").show();
+
+            }
+          }
+        });
+
+
+      });
+    });
+      
     </script>
   </body>
 </html>
