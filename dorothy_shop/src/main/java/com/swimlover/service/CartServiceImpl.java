@@ -46,6 +46,11 @@ public class CartServiceImpl implements CartService {
 	public void cart_sel_delete(List<Long> cart_code_arr) {
 		cartMapper.cart_sel_delete(cart_code_arr);
 	}
+
+	@Override
+	public int getCartProdutCountByUserID(String mem_id) {
+		return cartMapper.getCartProdutCountByUserID(mem_id);
+	}
 	
 	
 }

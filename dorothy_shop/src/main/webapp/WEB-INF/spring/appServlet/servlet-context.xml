@@ -40,5 +40,9 @@
 		<beans:constructor-arg value = "C:\\dorothydatabase\\upload\\goods\\"/>
 	</beans:bean>	
 
+	<!--  ckeditor 파일업로드 경로 -->
+	<beans:bean id="uploadCkeditor" class="java.lang.String">
+		<beans:constructor-arg value="C:\\doccomsa\\upload\\ckeditor\\" />
+	</beans:bean>
 	
 </beans:beans>

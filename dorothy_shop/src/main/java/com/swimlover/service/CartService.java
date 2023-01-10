@@ -20,4 +20,7 @@ public interface CartService {
 	void cart_empty(String mem_id);
 	
 	void cart_sel_delete(List<Long> cart_code_arr);
+
+	int getCartProdutCountByUserID(String mem_id);
+
 }

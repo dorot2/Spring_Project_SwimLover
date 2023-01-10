@@ -21,22 +21,22 @@
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
   	<script id="reviewTemplate" type="text/x-handlebars-template">
-  {{#each .}}
-    <p>{{rv_content}}</p>
-    <div class="row">
-      <div class="col-md-3">{{idThreeDisplay mem_id}}</div>
-      <div class="col-md-9">{{prettifyDate rv_date_reg}}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-          {{displayStar rv_score}}
-          <input type="hidden" name="rv_score" value="{{rv_score}}">
-      </div>
-      <div class="col-md-9">{{authorityview mem_id rv_num}}</div>
-    </div>
-    <hr>
-  {{/each}}
-  </script>
+  	{{#each .}}
+   	 <p>{{rv_content}}</p>
+    	<div class="row">
+    	  <div class="col-md-3">{{idThreeDisplay mem_id}}</div>
+    	  <div class="col-md-9">{{prettifyDate rv_date_reg}}</div>
+    	</div>
+    	<div class="row">
+    	  <div class="col-md-3">
+    	      {{displayStar rv_score}}
+     	     <input type="hidden" name="rv_score" value="{{rv_score}}">
+    	  </div>
+    	  <div class="col-md-9">{{authorityview mem_id rv_num}}</div>
+    	</div>
+   	 <hr>
+  	{{/each}}
+  	</script>	
 
         <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -50,6 +50,7 @@
 
 
     <style>
+    
     p#star_rv_score a.rv_score {
       	font-size: 22px;
       	text-decoration: none;
@@ -73,6 +74,7 @@
           font-size: 3.5rem;
       }
       }
+      
       .p-2 {
           text-decoration:none;
           word-spacing : 20px;
@@ -182,14 +184,17 @@
 	<%@include file="/WEB-INF/views/include/footer.jsp" %>
     
     <script>
-      $(document).ready(function(){
-    	  
-        // 장바구니 클릭
+    
+    $(document).ready(function(){
+  	  // 상품설명, 상품후기 Tab
+        $("#tabs").tabs();	
+      	
+        //장바구니 클릭
         $("button[name='btnCart']").on("click", function(){
-
+          
           $.ajax({
-            url : '/cart/cart_add',
-            data : {pdt_num : $(this).parent().find("input[name='pdt_num']").val(), cart_amount : 1},
+            url: '/cart/cart_add',
+            data: {pdt_num : $("input[name='pdt_num']").val(), cart_amount : $("input[name='odr_amount']").val()},  // javascript object구문
             success : function(result) {
               if(result == "success") {
                 alert("장바구니에 추가됨.");
@@ -198,7 +203,6 @@
                 }
               }
             }
-            
           });
         });
         

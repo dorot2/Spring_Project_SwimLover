@@ -6,18 +6,16 @@
 <!-- 부트스트랩 적용 : https://themewagon.com/themes/free-bootstrap-5-html-5-ecommerce-website-template-zay-shop/ -->
 <html>
   <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">	
-      <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.101.0">
-        <title>Welcome to SwimLover</title>
-      
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
-        
-      <%@include file="/WEB-INF/views/include/common.jsp" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Welcome to SwimLover</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
+    <%@include file="/WEB-INF/views/include/common.jsp" %>
 
-        <!-- Favicons -->
+    <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -26,7 +24,6 @@
     <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
     <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
-
 
     <style>
       .bd-placeholder-img {
@@ -43,13 +40,16 @@
           font-size: 3.5rem;
       }
       }
+
       .p-2 {
           text-decoration:none;
           word-spacing : 20px;
       }
+
       a {
           text-decoration:none;
       }
+
       .navbar {
           font-size : 25px;
       }
@@ -81,8 +81,8 @@
             <div class="card mb-4 shadow-sm">
               <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
               <a href="${productVO.pdt_num }" class="proDetail">
-              <img src="/product/displayFile?folderName=${productVO.pdt_img_folder }&fileName=s_${productVO.pdt_img}" class="bd-placeholder-img card-img-top" width="100%" height="225">
-              </a>
+                <img src="/product/displayFile?folderName=${productVO.pdt_img_folder }&fileName=s_${productVO.pdt_img}" class="bd-placeholder-img card-img-top" width="100%">
+			        </a>
                 
               <div class="card-body">
                 <p class="card-text">${productVO.pdt_name }</p>
@@ -130,7 +130,7 @@
         	
         	// 주문작성 페이지
         	// 상품코드, 수량 : 기본값 1
-        	let pdt_num = $("input[name='pdt_num']").val();
+        	let pdt_num = $(this).siblings("input[name='pdt_num']").val();
         	let odr_amount = 1;
         	
         	let url = "/order/orderListInfo?pdt_num=" + pdt_num + "&odr_amount=" + odr_amount + "&type=direct";

@@ -27,4 +27,7 @@ public interface CartMapper {
 	// 장바구니 선택삭제.
 	void cart_sel_delete(List<Long> cart_code_arr);
 
+	// 장바구니 사용자별 상품개수
+	int getCartProdutCountByUserID(String mem_id);
+
 }

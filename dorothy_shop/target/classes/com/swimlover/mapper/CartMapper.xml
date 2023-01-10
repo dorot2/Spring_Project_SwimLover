@@ -82,4 +82,15 @@
 				</foreach>	
 	
 	</delete>
+	
+	<select id="getCartProdutCountByUserID" resultType="int">
+	
+		SELECT
+			COUNT(*)
+		FROM 
+			CART_TBL
+		WHERE
+			MEM_ID = #{mem_id}
+		
+	</select>
 </mapper>
