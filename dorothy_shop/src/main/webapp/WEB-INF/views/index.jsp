@@ -171,19 +171,19 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./resources/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="http://localhost:8000/product/productList/31/%EB%A1%B1%ED%95%80"><img src="./resources/img/category_img_01.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">오리발</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-success" href="http://localhost:8000/product/productList/31/%EB%A1%B1%ED%95%80">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./resources/img/category_img_02.png" class="rounded-circle img-fluid border"></a>
+                <a href="http://localhost:8000/product/productList/40/%ED%82%A5%ED%8C%90"><img src="./resources/img/category_img_02.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">훈련용품</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-success" href="http://localhost:8000/product/productList/40/%ED%82%A5%ED%8C%90">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./resources/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="http://localhost:8000/product/productList/51/%ED%8E%B8%EC%9D%98%EC%9A%A9%ED%92%88"><img src="./resources/img/category_img_03.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">꿀템모음</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <p class="text-center"><a class="btn btn-success" href="http://localhost:8000/product/productList/51/%ED%8E%B8%EC%9D%98%EC%9A%A9%ED%92%88">Go Shop</a></p>
             </div>
         </div>
     </section>
@@ -197,7 +197,7 @@
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">이달의 인기상품</h1>
                     <p>
-                        2022년 12월 인기상품
+                        2022년 누적판매 순 인기상품
                     </p>
                 </div>
             </div>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.swimlover.mapper.AdOrderMapper">
+
+	
+	<sql id="criteria">
+	
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="cri.typeArr" item="type">
+			  <trim prefix="OR">
+			  	<choose>
+			  		<when test="cri.type == 'O'.toString()">
+			  			ODR_CODE like '%' || #{cri.keyword} || '%'
+			  		</when>
+			  		<when test="cri.type == 'M'.toString()">
+			  			MEM_ID like '%' || #{cri.keyword} || '%'
+			  		</when>
+			  	</choose>
+			  </trim>
+			</foreach>
+		</trim>
+	
+	</sql>
+	
+	<select id = "getOrderList" resultType="com.swimlover.domain.OrderVO">
+	
+		<![CDATA[
+		SELECT 
+			RN, ODR_CODE, ODR_DATE, MEM_ID, ODR_NAME, ODR_TOTAL_PRICE, ODR_STATUS  
+		FROM (
+	        SELECT 
+	        	/*+ INDEX_DESC(ord PK_ORDER_CODE) */  
+                ROWNUM RN, ORD.ODR_CODE, ORD.ODR_DATE, ORD.MEM_ID, ORD.ODR_NAME, ORD.ODR_TOTAL_PRICE, ORD.ODR_STATUS
+	        FROM 
+	        	ORDER_TBL ORD
+            WHERE  
+		]]>
+			<include refid = "criteria" />
+		<![CDATA[
+				ROWNUM <= #{cri.pageNum} * #{cri.amount}
+				)
+			WHERE
+				RN > (#{cri.pageNum}-1) * #{cri.amount}
+		]]>
+	
+	</select>
+	
+	<select id = "getOrderTotalCount" resultType = "int">
+	
+		SELECT
+			COUNT(*)
+		FROM
+			ORDER_TBL
+		WHERE
+			<include refid = "criteria" />
+			ODR_CODE > 0
+	
+	</select>
+
+
+</mapper>
