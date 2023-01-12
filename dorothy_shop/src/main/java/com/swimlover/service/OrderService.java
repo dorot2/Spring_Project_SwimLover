@@ -2,6 +2,8 @@ package com.swimlover.service;
 
 import java.util.List;
 
+import com.swimlover.domain.OrderDetailProductVO;
+import com.swimlover.dto.Criteria;
 import com.swimlover.domain.CartVO;
 import com.swimlover.domain.CartVOList;
 import com.swimlover.domain.OrderDetailVO;
@@ -21,4 +23,13 @@ public interface OrderService {
 	CartVOList directOrder(CartVO vo);
 	
 	long getOrderSequence();
+	
+	int getOrderProcessCount(String mem_id);
+	
+	// 주문내역
+	List<OrderVO> getOrderList(String mem_id, Criteria cri);
+	
+	int getOrderTotalCount(String mem_id);
+	
+	List<OrderDetailProductVO> getOrderDetailList(Long odr_code);
 }

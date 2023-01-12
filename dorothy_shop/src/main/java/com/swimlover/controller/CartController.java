@@ -61,6 +61,11 @@ public class CartController {
 		
 		String mem_id = ((MemberVO)session.getAttribute("loginStatus")).getMem_id();
 		List<CartVOList> cartList = cartService.cart_list(mem_id);
+		
+		cartList.forEach(vo -> {
+			vo.setPdt_img_folder(vo.getPdt_img_folder().replace("\\", "/"));
+		});
+		
 		model.addAttribute("cartList", cartList);
 		return "/cart/cartList";
 	}

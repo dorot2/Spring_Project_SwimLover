@@ -8,9 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.swimlover.domain.CartVO;
 import com.swimlover.domain.CartVOList;
+import com.swimlover.domain.OrderDetailProductVO;
 import com.swimlover.domain.OrderDetailVO;
 import com.swimlover.domain.OrderVO;
 import com.swimlover.domain.PaymentVO;
+import com.swimlover.dto.Criteria;
 import com.swimlover.mapper.CartMapper;
 import com.swimlover.mapper.OrderMapper;
 
@@ -74,6 +76,26 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public long getOrderSequence() {
 		return orderMapper.getOrderSequence();
+	}
+
+	@Override
+	public int getOrderProcessCount(String mem_id) {
+		return orderMapper.getOrderProcessCount(mem_id);
+	}
+
+	@Override
+	public List<OrderVO> getOrderList(String mem_id, Criteria cri) {
+		return orderMapper.getOrderList(mem_id, cri);
+	}
+
+	@Override
+	public int getOrderTotalCount(String mem_id) {
+		return orderMapper.getOrderTotalCount(mem_id);
+	}
+
+	@Override
+	public List<OrderDetailProductVO> getOrderDetailList(Long odr_code) {
+		return orderMapper.getOrderDetailList(odr_code);
 	}
 
 

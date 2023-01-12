@@ -1,12 +1,16 @@
 package com.swimlover.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.swimlover.domain.CartVO;
 import com.swimlover.domain.CartVOList;
+import com.swimlover.domain.OrderDetailProductVO;
 import com.swimlover.domain.OrderDetailVO;
 import com.swimlover.domain.OrderVO;
 import com.swimlover.domain.PaymentVO;
+import com.swimlover.dto.Criteria;
 
 public interface OrderMapper {
 
@@ -27,4 +31,14 @@ public interface OrderMapper {
 	
 	// 시퀌스 가져오기
 	long getOrderSequence();
+	
+	// 진행 주문건수
+	int getOrderProcessCount(String mem_id);
+	
+	// 주문내역
+	List<OrderVO> getOrderList(@Param("mem_id") String mem_id, @Param("cri") Criteria cri);
+	
+	int getOrderTotalCount(String mem_id);
+	
+	List<OrderDetailProductVO> getOrderDetailList(Long odr_code);
 }
