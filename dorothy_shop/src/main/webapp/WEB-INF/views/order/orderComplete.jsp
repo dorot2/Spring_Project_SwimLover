@@ -73,7 +73,7 @@
   	<div class="col-md-12">
   		<div class="box">
 			<div class="box-header">
-				<h3 class="box-title">결제 및 주문이 완료되었습니다.</h3>
+				<h3 class="box-title">결제 및 주문이 완료되었습니다.</h3><br><br><br><br>
 			</div>
 		</div>
   	

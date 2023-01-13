@@ -74,7 +74,7 @@ public class OrderController {
 			orderList.add(cartVOList);
 			
 			
-		}else if (type.contentEquals("cart")) { //장바구니
+		}else if (type.equals("cart")) { //장바구니
 			orderList = orderService.cart_list(mem_id);
 		}
 		
