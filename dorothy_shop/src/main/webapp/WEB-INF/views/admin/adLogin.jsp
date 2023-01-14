@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -44,27 +43,26 @@
         -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
         box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
       }
-      
     
     </style>
-    
-        <script>
+
+    <script>
       let msg = '${msg}';
+
       if(msg != '') {
         alert(msg);
       }
-
     </script>
-    
-</head>
-<body>
-<div class="container">
+  </head>
+
+  <body>
+
+    <div class="container">
       <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
           <h4 class="mb-3"><b>SwimLover 관리자 로그인</b></h4><br>
           <form action = "/admin/admin_ok" method = "post">
             <div class="mb-3">
-            
               <div class="col-md-12 mb-3">
                 <label for="admin_id">아이디</label>
                 <input type="text" class="form-control" id="admin_id" name="admin_id" placeholder="아이디를  입력해주세요.">
@@ -74,11 +72,10 @@
                 <label for="admin_pw">비밀번호</label>
                 <input type="password" class="form-control" id="admin_pw" name="admin_pw" placeholder="비밀번호를 입력해주세요.">
               </div>
-            
-             <div class="col-md-12 text-center">
-			  	<button type="submit" class="btn btn-dark" id="btnLogin">로그인</button>
-			  </div>
-            
+              
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-dark" id="btnLogin">로그인</button>
+              </div>
             </div>
           </form>
         </div> 
@@ -87,5 +84,6 @@
         <p class="mb-1">&copy; 2021 YD</p><br><br><br><br>
       </footer>
     </div>
-</body>
+    
+  </body>
 </html>

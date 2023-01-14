@@ -12,13 +12,11 @@
     <%@ include file="/WEB-INF/views/admin/include/plugin1.jsp" %>
     
     <script>
-
       let msg = '${msg}';
 
       if(msg != '') {
         alert(msg);
       }
-
     </script>
 
   </head>
@@ -38,12 +36,6 @@
           <h1>관리자 페이지
             <small>SwimLover 관리자 페이지</small>
           </h1>
-        
-          <!-- 삭제해도 되나?
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-          </ol> -->
         </section>
       
         <!-- Main content -->
@@ -95,11 +87,11 @@
                   <option value="M" <c:out value="${pageMaker.cri.type eq 'M' ? 'selected' : '' }" />>주문자ID</option>
                   <option value="OM" <c:out value="${pageMaker.cri.type eq 'OM' ? 'selected' : '' }" />>주문번호 or 주문자ID</option>
                 </select>
+
                 <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
                 <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
                 <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
                 <button type="button" id="btnSearch" class="btn btn-link">Search</button>
-            
               </div>
             </div>
           </form>
@@ -171,16 +163,10 @@
                       </c:if>
               
                       <!-- 페이지번호 표시.  1  2  3  4  5 -->
-              
                       <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="num" >
                         <li class='page-item ${pageMaker.cri.pageNum == num ? "active": "" }'><a class="page-link" href="${num}">${num}</a></li>
                       </c:forEach>
-                        <!-- 
-                      <li class="page-item active" aria-current="page">
-                        <span class="page-link">2</span>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      -->
+
                       <!-- 다음표시 -->
                       <c:if test="${pageMaker.next }">
                         <li class="page-item">
@@ -229,10 +215,8 @@
               <li>
                 <a href="javascript:;">
                   <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
                     <p>Will be 23 on April 24th</p>
                   </div>
                 </a>
@@ -247,8 +231,8 @@
                   <h4 class="control-sidebar-subheading">
                     Custom Template Design
                     <span class="pull-right-container">
-                        <span class="label label-danger pull-right">70%</span>
-                      </span>
+                      <span class="label label-danger pull-right">70%</span>
+                    </span>
                   </h4>
 
                   <div class="progress progress-xxs">
@@ -258,9 +242,9 @@
               </li>
             </ul>
             <!-- /.control-sidebar-menu -->
-
           </div>
           <!-- /.tab-pane -->
+          
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
           <!-- /.tab-pane -->
