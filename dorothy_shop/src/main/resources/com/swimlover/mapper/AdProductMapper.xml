@@ -122,5 +122,16 @@
 			PDT_NUM = #{pdt_num}
 	
 	</delete>
+	
+	<update id="btnSalesYN">
+	
+		UPDATE
+			PRODUCT_TBL
+		SET
+			PDT_BUY = #{pdt_buy}
+		WHERE 
+			pdt_num = #{pdt_num}
+	
+	</update>
 
 </mapper>

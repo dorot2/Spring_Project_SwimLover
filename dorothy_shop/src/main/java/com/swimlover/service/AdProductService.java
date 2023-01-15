@@ -23,4 +23,6 @@ public interface AdProductService {
 	void productModify(ProductVO vo);
 	
 	void productDelete(Integer pdt_num);
+	
+	void btnSalesYN(Integer pdt_num, String pdt_buy);
 }

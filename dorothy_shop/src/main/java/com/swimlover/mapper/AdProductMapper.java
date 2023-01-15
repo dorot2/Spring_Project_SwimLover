@@ -2,6 +2,8 @@ package com.swimlover.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.swimlover.domain.CategoryVO;
 import com.swimlover.domain.ProductVO;
 import com.swimlover.dto.Criteria;
@@ -31,4 +33,7 @@ public interface AdProductMapper {
 	
 	// 상품 삭제하기
 	void productDelete(Integer pdt_num);
+	
+	//상품 판매여부
+	void btnSalesYN(@Param("pdt_num") Integer pdt_num, @Param("pdt_buy") String pdt_buy);
 }

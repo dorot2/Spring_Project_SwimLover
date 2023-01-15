@@ -25,43 +25,42 @@ public class AdProductServiceImpl implements AdProductService {
 
 	@Override
 	public List<CategoryVO> getSubCategoryList(Integer cate_code) {
-		// TODO Auto-generated method stub
 		return adProductMapper.getSubCategoryList(cate_code);
 	}
 
 	@Override
 	public void productInsert(ProductVO vo) {
-		// TODO Auto-generated method stub
 		adProductMapper.productInsert(vo);
 	}
 
 	@Override
 	public List<ProductVO> getProductList(Criteria cri) {
-		// TODO Auto-generated method stub
 		return adProductMapper.getProductList(cri);
 	}
 
 	@Override
 	public int getProductTotalCount(Criteria cri) {
-		// TODO Auto-generated method stub
 		return adProductMapper.getProductTotalCount(cri);
 	}
 
 	@Override
 	public ProductVO getProductByNum(Integer pdt_num) {
-		// TODO Auto-generated method stub
 		return adProductMapper.getProductByNum(pdt_num);
 	}
 
 	@Override
 	public void productModify(ProductVO vo) {
-		// TODO Auto-generated method stub
 		adProductMapper.productModify(vo);
 	}
 
 	@Override
 	public void productDelete(Integer pdt_num) {
-		// TODO Auto-generated method stub
 		adProductMapper.productDelete(pdt_num);
+	}
+
+	@Override
+	public void btnSalesYN(Integer pdt_num, String pdt_buy) {
+		adProductMapper.btnSalesYN(pdt_num, pdt_buy);
+		
 	}
 }

@@ -48,6 +48,8 @@ public class AdProductController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
+	@Resource(name = "uploadCkeditor")
+	private String uploadCkeditor;
 	
 	// 상품등록페이지
 	@GetMapping("/productInsert")
@@ -221,4 +223,15 @@ public class AdProductController {
 		return "redirect:/admin/product/productList" + cri.getListLink();
 	}
 
+	//상품판매 여부
+	@GetMapping("/btnSalesYN")
+	@ResponseBody
+	public ResponseEntity<String> btnSalesYN(Integer pdt_num, String pdt_buy)  {
+		
+		ResponseEntity<String> entity = null;
+		adProductService.btnSalesYN(pdt_num, pdt_buy);
+		entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		return entity;
+		
+	}
 }
