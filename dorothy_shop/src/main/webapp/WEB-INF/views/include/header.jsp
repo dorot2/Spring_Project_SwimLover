@@ -21,7 +21,7 @@
 			    <a class="p-2 text-light" href="/member/confirmPW">MODIFY</a>
 			    </c:if>
 			    <a class="p-2 text-light" href="#">ORDER</a>
-<!-- 			    <a class="p-2 text-light" href="#">MYPAGE</a> -->
+		    	<a class="p-2 text-light" href="/member/mypage">MYPAGE</a>
 	               </div>
             </div>
         </div>

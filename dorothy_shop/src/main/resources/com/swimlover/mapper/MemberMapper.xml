@@ -35,7 +35,7 @@
 	
 	</insert>
 	
-	<select id = "idCheck" resultType = "String">
+	<select id = "idCheck" resultType = "string">
 	
 		SELECT MEM_ID
 		FROM MEMBER_TBL
@@ -69,7 +69,7 @@
 	
 	</select>
 	
-	<select id = "getIDEmailExists" resultType = "String">
+	<select id = "getIDEmailExists" resultType = "string">
 	
 		SELECT
 			MEM_ID
@@ -90,5 +90,46 @@
 			MEM_ID = #{mem_id}
 	
 	</update>
+	
+	<update id = "modify">
+	
+		UPDATE
+			MEMBER_TBL
+		SET
+			MEM_EMAIL = #{mem_email}, 
+			MEM_ZIPCODE = #{mem_zipcode}, 
+			MEM_ADDR = #{mem_addr}, 
+			MEM_ADDR_D = #{mem_addr_d}, 
+			MEM_PHONE = #{mem_phone}, 
+			MEM_NICK = #{mem_nick}, 
+			MEM_DATE_UP = SYSDATE
+		WHERE
+			MEM_ID = #{mem_id}
+	
+	</update>
+	
+	<update id = "loginTimeUpdate">
+	
+		UPDATE
+			MEMBER_TBL
+		SET
+			MEM_DATE_LAST = SYSDATE
+		WHERE
+			MEM_ID = #{mem_id}
+	
+	</update>
+	
+	<select id = "getOrderTotalPrice" resultType = "int">
+	
+		SELECT
+			SUM(ODR_TOTAL_PRICE)
+		FROM
+			ORDER_TBL
+		WHERE
+			MEM_ID = #{mem_id}
+		AND
+			ODR_STATUS = '배송완료'
+	
+	</select>
 	
 </mapper>

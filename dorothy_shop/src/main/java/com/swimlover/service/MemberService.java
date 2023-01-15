@@ -13,4 +13,11 @@ public interface MemberService {
 	String getIDEmailExists(String mem_id, String mem_email);
 	
 	void changePW(String mem_id, String enc_pw);
+	
+	void modify(MemberVO vo);
+	
+	// 로그인 시간 업데이트
+	void loginTimeUpdate(String mem_id);
+	
+	int getOrderTotalPrice(String mem_id);
 }

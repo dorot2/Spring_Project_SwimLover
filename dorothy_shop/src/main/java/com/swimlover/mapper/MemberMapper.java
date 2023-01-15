@@ -21,5 +21,14 @@ public interface MemberMapper {
 	// 임시비번을 암호화하여 변경.
 	void changePW(@Param("mem_id") String mem_id, @Param("enc_pw") String enc_pw);
 	
+	// 회원정보 수정
+	void modify(MemberVO vo);
+	
+	// 로그인 시간 업데이트
+	void loginTimeUpdate(String mem_id);
+	
+	// 총 주문금액(배송완료 기준)
+	int getOrderTotalPrice(String mem_id);
+	
 	
 }
