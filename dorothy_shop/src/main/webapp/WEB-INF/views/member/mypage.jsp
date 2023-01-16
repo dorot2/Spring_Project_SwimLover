@@ -53,7 +53,7 @@
       
       .p-2 {
   	text-decoration:none;
-  }
+  	}
     
     </style>
     

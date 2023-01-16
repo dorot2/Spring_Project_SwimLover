@@ -119,11 +119,8 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h2 class="h2">신상 오리발</h2>
-                                <h4 class="h4">남들과는 다른, 특별한 오리발</h4>
-                                <p>수영엉쩌고저쩌꼬
-                                 <strong>중요한 것은</strong> 헤헤헤
-                                </p>
+                                <h1 class="h1">신상 오리발</h1>
+                                <h4 class="h4">중요한 것은 꺾이지 않는 튼튼한 오리발</h4>
                             </div>
                         </div>
                     </div>
@@ -165,7 +162,7 @@
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">With SwimLover</h1>
                 <p>
-                    SwimLover에서는 다양한 브랜드 어쩌고저쩌고~
+                    SwimLover에서는 다양한 브랜드의 수영물품들을 만나볼 수 있습니다.
                 </p>
             </div>
         </div>
@@ -197,15 +194,15 @@
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">이달의 인기상품</h1>
                     <p>
-                        2022년 누적판매 순 인기상품
+                        2023년 1월 인기상품
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./resources/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                        <a href=http://localhost:8000/product/productDetail?pdt_num=32>
+                            <img src="./resources/img/feature_prod_01.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -213,23 +210,23 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">$240.00</li>
+                                <li class="text-muted text-right">40,000원</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                            <a href="http://localhost:8000/product/productDetail?pdt_num=32" class="h2 text-decoration-none text-dark">나이키 실리콘 수모</a>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                                       스마일이 함께하는 나이키 실리콘 수모 화이트
                             </p>
-                            <p class="text-muted">Reviews (24)</p>
+                            <p class="text-muted">후기(508)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./resources/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                        <a href="http://localhost:8000/product/productDetail?pdt_num=36">
+                            <img src="./resources/img/feature_prod_02.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -237,23 +234,23 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">$480.00</li>
+                                <li class="text-muted text-right">90,000원</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
+                            <a href="http://localhost:8000/product/productDetail?pdt_num=36" class="h2 text-decoration-none text-dark">엘리트 미러 수경 화이트</a>
                             <p class="card-text">
-                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
+                                                        무지개빛 미러코팅 처리가 멋진 패킹 수경
                             </p>
-                            <p class="text-muted">Reviews (48)</p>
+                            <p class="text-muted">후기(328)</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="shop-single.html">
-                            <img src="./resources/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                        <a href="http://localhost:8000/product/productDetail?pdt_num=21">
+                            <img src="./resources/img/feature_prod_03.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -264,13 +261,13 @@
                                     <i class="text-warning fa fa-star"></i>
                                     <i class="text-warning fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">$360.00</li>
+                                <li class="text-muted text-right">88,000원</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
+                            <a href="http://localhost:8000/product/productDetail?pdt_num=21" class="h2 text-decoration-none text-dark">엘리트 캔디 숏핀 레몬</a>
                             <p class="card-text">
-                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
+                                                        숏핀 오리발
                             </p>
-                            <p class="text-muted">Reviews (74)</p>
+                            <p class="text-muted">후기(130)</p>
                         </div>
                     </div>
                 </div>

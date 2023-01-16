@@ -46,6 +46,14 @@
           font-size: 3.5rem;
         }
       }
+      
+      a{
+        text-decoration:none;
+      }
+      
+      .p-2 {
+  	text-decoration:none;
+  	}
     </style>
 	<script>
       let msg = '${msg}';
@@ -154,9 +162,9 @@
   	
   	</div>
   </div>
-
-  <%@include file="/WEB-INF/views/include/footer.jsp" %>
 </div>
+  <%@include file="/WEB-INF/views/include/footer.jsp" %>
+
 
 
   <script>

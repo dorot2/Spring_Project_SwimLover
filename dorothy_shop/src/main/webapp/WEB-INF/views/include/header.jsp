@@ -20,8 +20,7 @@
 			    <a class="p-2 text-light" href="/member/logout">LOGOUT</a>
 			    <a class="p-2 text-light" href="/member/confirmPW">MODIFY</a>
 			    </c:if>
-			    <a class="p-2 text-light" href="#">ORDER</a>
-		    	<a class="p-2 text-light" href="/member/mypage">MYPAGE</a>
+			    <a class="p-2 text-light" href="/order/orderList">ORDER</a>
 	               </div>
             </div>
         </div>
