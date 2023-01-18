@@ -265,7 +265,7 @@
                             </ul>
                             <a href="http://localhost:8000/product/productDetail?pdt_num=21" class="h2 text-decoration-none text-dark">엘리트 캔디 숏핀 레몬</a>
                             <p class="card-text">
-                                                        숏핀 오리발
+                                                        초보자, 선수들에게도 인기만점인 숏핀
                             </p>
                             <p class="text-muted">후기(130)</p>
                         </div>
