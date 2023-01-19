@@ -2,19 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+	<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Pricing example · Bootstrap v4.6</title>
-
+    <title>SwimLover 상품상세보기</title>
+    
     <%@include file="/WEB-INF/views/include/common.jsp" %>
-
+    
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -35,8 +34,7 @@
       <hr>
     {{/each}}
     </script>
-
-
+   
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -46,11 +44,9 @@
     <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
     <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
-
-
+     
     <style>
-    
-      p#star_rv_score a.rv_score {
+    	p#star_rv_score a.rv_score {
       	font-size: 22px;
       	text-decoration: none;
       	color: lightgray;
@@ -83,23 +79,78 @@
       a {
           text-decoration:none;
       }
+      
+
+        h1 {
+            padding: 50px 0;
+            font-weight: 400;
+            text-align: center;}
+
+        p {
+            margin: 0 0 20px;
+            line-height: 1.5;}
+
+        .main {
+            min-width: 320px;
+            max-width: 1000px;
+            padding: 50px;
+            margin: 0 auto;
+            background: #ffffff;}
+
+		.container {
+			max-width : 900px;
+		}
+
+        section {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #ddd;}
+
+        /*라디오버튼 숨김*/
+          input {
+              display: none;}
+
+        label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            color: #bbb;
+            border: 1px solid transparent;}
+
+        label:hover {
+            color: #2e9cdf;
+            cursor: pointer;}
+
+        /*input 클릭시, label 스타일*/
+        input:checked + label {
+              color: #555;
+              border: 1px solid #ddd;
+              border-top: 2px solid #2e9cdf;
+              border-bottom: 1px solid #ffffff;}
+
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 {
+            display: block;}
     </style>
 
-	  <script>
+	 <script>
       let msg = '${msg}';
       if(msg != '') {
         alert(msg);
       }
     </script>
-   
-  </head>
-  
-  <body>
     
-    <%@include file="/WEB-INF/views/include/header.jsp" %>
-    <%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
+	</head>
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+	<body>
+		<%@include file="/WEB-INF/views/include/header.jsp" %>
+    	<%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
+	
+	<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">${cate_name }</h1>
     </div>
     <!-- 부트스트랩 여백 https://minaminaworld.tistory.com/136 -->
@@ -124,20 +175,24 @@
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div id="tabs">
-            <ul>
-              <li><a href="#product_desc">상품설명</a></li>
-              <li><a href="#product_qna">상품후기</a></li>
-            </ul>
-            <div id="product_desc">
-              상품설명
+     	</div>
+      
+      <!-- 하단 탭부분 -->
+	<div class="main">
+	    <input id="tab1" type="radio" name="tabs" checked=""> <!--디폴트 메뉴-->
+	    <label for="tab1">상품설명</label>
+	
+	    <input id="tab2" type="radio" name="tabs">
+	    <label for="tab2">상품후기</label>
+	    
+	    <section id="content1">
+	        <div id="product_desc">
               ${productVO.pdt_detail }
             </div>
-            <div id="product_qna">
-              <h5>상품후기</h5>
+	    </section>
+	
+	    <section id="content2">
+	        <div id="product_qna">
               <div class="form-group row">
                 <div class="col-md-12">
                   <p id="star_rv_score">
@@ -174,18 +229,13 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <%@include file="/WEB-INF/views/include/footer.jsp" %>
-
-    <script>
-
+	    </section>
+	</div>
+	
+	<%@include file="/WEB-INF/views/include/footer.jsp" %>
+	
+	<script>
       $(document).ready(function(){
-      // 상품설명, 상품후기 Tab
-        $("#tabs").tabs();
         
         //장바구니 클릭
         $("button[name='btnCart']").on("click", function(){
@@ -534,6 +584,7 @@
         });
       });
 
-    </script>  
-  </body>
+    </script>  	
+	
+	</body>
 </html>
