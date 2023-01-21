@@ -205,7 +205,7 @@ public class MemberController {
 		}
 		rttr.addFlashAttribute("msg", msg);
 		
-		 return "redirect:/" + url;
+		 return "redirect:" + url;
 	}
 	
 	@GetMapping("/confirmPW")
@@ -213,7 +213,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/confirmPW")
-	public String confirmPW(@RequestParam("/mem_pw") String mem_pw, HttpSession session, RedirectAttributes rttr) {
+	public String confirmPW(@RequestParam("mem_pw") String mem_pw, HttpSession session, RedirectAttributes rttr) {
 		
 		// 로그인 상태에서 세션을 통하여 사용자 아이디를 참조할 수가 있다.
 		String mem_id = ((MemberVO) session.getAttribute("loginStatus")).getMem_id();

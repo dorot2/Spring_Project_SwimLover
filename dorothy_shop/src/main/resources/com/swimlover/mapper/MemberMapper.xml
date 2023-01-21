@@ -121,13 +121,13 @@
 	
 	<select id = "getOrderTotalPrice" resultType = "int">
 	
-		SELECT
+		SELECT 
 			SUM(ODR_TOTAL_PRICE)
-		FROM
+		FROM 
 			ORDER_TBL
-		WHERE
-			MEM_ID = #{mem_id}
-		AND
+		WHERE 
+			MEM_ID = #{mem_id} 
+		AND 
 			ODR_STATUS = '배송완료'
 	
 	</select>

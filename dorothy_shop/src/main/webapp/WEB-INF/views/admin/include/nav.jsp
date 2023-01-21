@@ -82,8 +82,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="#">Link in level 2</a></li>
+          <li><a href="/admin/chart/cartProductPrice">전체주문 통계차트</a></li>
         </ul>
       </li>
     </ul>
