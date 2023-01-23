@@ -11,7 +11,11 @@ public interface ReviewService {
 
 	void create(ReviewVO vo);
 	
-	List<ReviewVO> list(@Param("pdt_num") Integer pdt_num, @Param("cri") Criteria cri);
-
+	List<ReviewVO> list(Integer pdt_num, Criteria cri);
+	
 	int listCount(Integer pdt_num);
+	
+	int delete(Long rv_num);
+	
+	int update(ReviewVO vo);
 }

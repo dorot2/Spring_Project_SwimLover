@@ -45,4 +45,41 @@
 		<beans:constructor-arg value="C:\\dorothydatabase\\upload\\ckeditor\\" />
 	</beans:bean>
 	
+	<!--  인터셉터 클래스를 위한 bean 설정 -->
+	  <beans:bean id="testInterceptor" class="com.swimlover.interceptor.TestInterceptor"></beans:bean>
+	 <interceptors>
+	  	<interceptor>
+	  		<mapping path="/test/testA"/>
+	  		<mapping path="/test/testB"/>
+	  		<beans:ref bean="testInterceptor"/>
+	  	</interceptor>
+	  </interceptors>
+	  
+	  <!-- 사용자 인터셉터 설정 -->
+	  
+	  <beans:bean id="userInterceptor" class="com.swimlover.interceptor.UserInterceptor" />
+	  
+	  <interceptors>
+	  	<interceptor>
+	  		<mapping path="/member/modify" />
+	  		<mapping path="/member/mypage" />
+	  		<mapping path="/member/confirmPW" />
+	  		<mapping path="/cart/*" />
+	  		<mapping path="/order/*" />
+	  		<beans:ref bean="userInterceptor" />
+	  	</interceptor>
+	  </interceptors>
+	  
+	  <!--  관리자 인터셉터 설정 -->
+	  <beans:bean id="adminInterceptor" class="com.swimlover.interceptor.AdminInterceptor" />
+	  
+	  <interceptors>
+	  	<interceptor>
+	  		<mapping path="/admin/**"/>
+	  		<exclude-mapping path="/admin/"/>
+	  		<exclude-mapping path="/admin/admin_ok"/>
+	  		<beans:ref bean="adminInterceptor"/>
+	  	</interceptor>
+	  </interceptors>
+	  
 </beans:beans>

@@ -13,12 +13,12 @@ import com.swimlover.dto.Criteria;
 public interface AdOrderMapper {
 	
 	List<OrderVO> getOrderList(@Param("cri") Criteria cri, 
-			   @Param("startDate") String startDate, @Param("endDate") String endDate, 
-			   @Param("odr_status") String odr_status);
+			   				   @Param("startDate") String startDate, @Param("endDate") String endDate, 
+			   				   @Param("odr_status") String odr_status);
 
 	int getOrderTotalCount(@Param("cri") Criteria cri, 
-			   @Param("startDate") String startDate, @Param("endDate") String endDate, 
-			   @Param("odr_status") String odr_status);
+			   			   @Param("startDate") String startDate, @Param("endDate") String endDate, 
+			   			   @Param("odr_status") String odr_status);
 	
 	void orderStatusChange(@Param("odr_code") Long odr_code, @Param("odr_status") String odr_status);
 	

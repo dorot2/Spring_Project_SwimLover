@@ -13,14 +13,14 @@ import lombok.Setter;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
-
-	@Setter(onMethod_= {@Autowired})
+	
+	
+	@Setter(onMethod_ = {@Autowired})
 	private ReviewMapper reviewMapper;
 
 	@Override
 	public void create(ReviewVO vo) {
 		reviewMapper.create(vo);
-		
 	}
 
 	@Override
@@ -32,4 +32,16 @@ public class ReviewServiceImpl implements ReviewService {
 	public int listCount(Integer pdt_num) {
 		return reviewMapper.listCount(pdt_num);
 	}
+
+	@Override
+	public int delete(Long rv_num) {
+		return reviewMapper.delete(rv_num);
+	}
+
+	@Override
+	public int update(ReviewVO vo) {
+		return reviewMapper.update(vo);
+	}
+
+	
 }

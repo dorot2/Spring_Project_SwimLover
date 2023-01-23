@@ -101,13 +101,13 @@ public class CartController {
 	}
 	
 	//장바구니 비우기
-		@GetMapping("/cart_empty")
-		public String cart_empty(HttpSession session) {
-			
-			String mem_id = ((MemberVO)session.getAttribute("loginStatus")).getMem_id();
-			cartService.cart_empty(mem_id);
-			return "redirect:/cart/cart_list";
-		}
+	@GetMapping("/cart_empty")
+	public String cart_empty(HttpSession session) {
+		
+		String mem_id = ((MemberVO)session.getAttribute("loginStatus")).getMem_id();
+		cartService.cart_empty(mem_id);
+		return "redirect:/cart/cart_list";
+	}
 	
 	// 선택삭제할 장바구니
 	@ResponseBody

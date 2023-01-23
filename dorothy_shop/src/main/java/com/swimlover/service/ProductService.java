@@ -2,8 +2,6 @@ package com.swimlover.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.swimlover.domain.CategoryVO;
 import com.swimlover.domain.ProductVO;
 import com.swimlover.dto.Criteria;

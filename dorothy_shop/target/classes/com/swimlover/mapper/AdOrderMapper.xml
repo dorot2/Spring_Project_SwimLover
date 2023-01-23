@@ -234,8 +234,6 @@
 	
 	</delete>
 	
-	
-	
 	<delete id="paymentDelete">
 	
 		DELETE FROM

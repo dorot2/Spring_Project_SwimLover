@@ -10,7 +10,7 @@ import com.swimlover.dto.Criteria;
 
 public interface AdOrderService {
 
-List<OrderVO> getOrderList(Criteria cri, String startDate, String endDate, String odr_status);
+	List<OrderVO> getOrderList(Criteria cri, String startDate, String endDate, String odr_status);
 	
 	int getOrderTotalCount(Criteria cri, String startDate, String endDate, String odr_status);
 	

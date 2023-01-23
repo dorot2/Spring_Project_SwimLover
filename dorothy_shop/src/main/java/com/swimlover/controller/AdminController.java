@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.swimlover.controller.AdminController;
 import com.swimlover.domain.AdminVO;
 import com.swimlover.service.AdminService;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
+
+@Log4j
 @RequestMapping("/admin/*")
 @Controller
 public class AdminController {
@@ -26,7 +30,6 @@ public class AdminController {
 	// 암호화 주입작업
 	@Setter(onMethod_ = {@Autowired})
 	private PasswordEncoder passwordEncoder;
-
 	
 	// 관리자 로그인페이지
 	@GetMapping("")
@@ -54,8 +57,15 @@ public class AdminController {
 				// 일반회원 로그인에 사용한 세션이름과 다르게 해야 함
 				session.setAttribute("adminStatus", adminVO);
 				
-				url = "/admin/admin_menu";
+				//현재 접속(로그인)시간 업데이트 작업
+				adminService.login_update(vo.getAdmin_id());
+				
+				String dest = (String) session.getAttribute("dest");
+				
+				url = (dest == null) ? "/admin/admin_menu" : dest;
 				msg = "관리자 로그인 성공";
+				
+				log.info("인증정보 양호");
 
 			}else {
 				url = "/admin/";
@@ -79,6 +89,4 @@ public class AdminController {
 		return "redirect:/admin/";
 	}
 
-	}
-
-
+}

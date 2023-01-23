@@ -27,39 +27,33 @@ public class AdOrderServiceImpl implements AdOrderService {
 	
 	@Override
 	public int getOrderTotalCount(Criteria cri, String odr_status, String startDate, String endDate) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getOrderTotalCount(cri, odr_status, startDate, endDate);
 	}
 
 	@Override
 	public void orderStatusChange(Long odr_code, String odr_status) {
-		// TODO Auto-generated method stub
 		adOrderMapper.orderStatusChange(odr_code, odr_status);
 	}
 
 	@Override
 	public int orderStatusCount(String odr_status) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.orderStatusCount(odr_status);
 	}
 
 	@Override
 	public List<OrderVO> getOrderList(Criteria cri, String odr_status, String startDate, String endDate) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getOrderList(cri, odr_status, startDate, endDate);
 	}
 
 	
 	@Override
 	public List<OrderDetailVOList> getOrderDetailList1(Long odr_code) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getOrderDetailList1(odr_code);
 	}
 	
 	
 	@Override
 	public List<OrderDetailProductVO> getOrderDetailList2(Long odr_code) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getOrderDetailList2(odr_code);
 	}
 	
@@ -67,19 +61,16 @@ public class AdOrderServiceImpl implements AdOrderService {
 
 	@Override
 	public PaymentVO getPayment(Long odr_code) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getPayment(odr_code);
 	}
 
 	@Override
 	public OrderVO getOrder(Long odr_code) {
-		// TODO Auto-generated method stub
 		return adOrderMapper.getOrder(odr_code);
 	}
 
 	@Override
 	public void pay_memo(Integer pay_code, String pay_memo) {
-		// TODO Auto-generated method stub
 		adOrderMapper.pay_memo(pay_code, pay_memo);
 	}
 

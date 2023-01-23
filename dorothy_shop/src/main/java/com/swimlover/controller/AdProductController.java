@@ -87,7 +87,7 @@ public class AdProductController {
 			byte[] bytes = upload.getBytes(); // 업로드된 파일을 가르키는 byte 배열
 			
 			// CKEditor를 통하여 업로드되는 서버측의 폴더
-			String uploadPath = "C:\\dorothydatabase\\upload\\ckeditor\\" + fileName;
+			String uploadPath = uploadCkeditor + fileName;
 			
 			// 1) 출력스트림을 이용하여 업로드 작업 진행
 			out = new FileOutputStream(new File(uploadPath));
@@ -159,8 +159,6 @@ public class AdProductController {
 	@ResponseBody
 	@GetMapping("/displayFile")
 	public ResponseEntity<byte[]> displayFile(String folderName, String fileName) throws IOException {
-		
-		ResponseEntity<byte[]> entity = null;
 		
 		return FileUtils.getFile(uploadPath + folderName, fileName);
 	}

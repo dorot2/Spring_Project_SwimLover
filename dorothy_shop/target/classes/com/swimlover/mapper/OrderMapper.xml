@@ -36,7 +36,6 @@
 		WHERE 
 			C.MEM_ID = #{mem_id}
 	
-
 	</insert>
 	
 	<!-- 바로구매에서 주문상세작성 -->
@@ -166,7 +165,6 @@
 			OD.PDT_NUM = P.PDT_NUM
 		WHERE 
 			ODR_CODE = #{odr_code}
-		
 
 	</select>
 	

@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.swimlover.mapper.MemberMapper">
 
-	<insert id = "join">
+	<select id="idCheck" resultType="string">
+	
+		SELECT MEM_ID
+		FROM MEMBER_TBL
+		WHERE MEM_ID = #{mem_id}
+	
+	</select>
+	
+	<insert id="join">
 	
 		INSERT INTO MEMBER_TBL
 			(
@@ -15,8 +23,7 @@
 				MEM_ADDR_D, 
 				MEM_PHONE, 
 				MEM_NICK, 
-				MEM_ACCEPT_E,
-				MEM_ACCEPT_INFO
+				MEM_ACCEPT_E 	
 			)
 		VALUES
 			(
@@ -29,23 +36,14 @@
 				#{mem_addr_d},
 				#{mem_phone},
 				#{mem_nick},
-				#{mem_accept_e},
-				#{mem_accept_info}
+				#{mem_accept_e}
 			)
 	
 	</insert>
 	
-	<select id = "idCheck" resultType = "string">
-	
-		SELECT MEM_ID
-		FROM MEMBER_TBL
-		WHERE MEM_ID = #{mem_id}
+	<select id="login_ok" resultType="com.swimlover.domain.MemberVO">
 		
-	</select>
-	
-	<select id = "login_ok" resultType = "com.swimlover.domain.MemberVO">
-	
-		SELECT
+		SELECT 
 			MEM_ID, 
 			MEM_NAME, 
 			MEM_PW, 
@@ -55,34 +53,31 @@
 			MEM_ADDR_D, 
 			MEM_PHONE, 
 			MEM_NICK, 
-			MEM_ACCEPT_E,
-			MEM_POINT,
-			MEM_DATE_SUB,
-			MEM_DATE_UP,
-			MEM_DATE_LAST,
-			MEM_AUTHCODE,
-			MEM_ACCEPT_INFO
+			MEM_ACCEPT_E, 
+			MEM_POINT, 
+			MEM_DATE_SUB, 
+			MEM_DATE_UP, 
+			MEM_DATE_LAST, 
+			MEM_AUTHCODE
 		FROM 
 			MEMBER_TBL
-		WHERE 
+		WHERE
 			MEM_ID = #{mem_id}
-	
 	</select>
 	
-	<select id = "getIDEmailExists" resultType = "string">
+	<select id="getIDEmailExists" resultType="string">
 	
-		SELECT
+		SELECT 
 			MEM_ID
-		FROM
+		FROM 
 			MEMBER_TBL
 		WHERE
 			MEM_ID = #{mem_id} AND MEM_EMAIL = #{mem_email}
-	
 	</select>
 	
-	<update id = "changePW">
+	<update id="changePW">
 	
-		UPDATE
+		UPDATE 
 			MEMBER_TBL
 		SET
 			MEM_PW = #{enc_pw}
@@ -91,7 +86,7 @@
 	
 	</update>
 	
-	<update id = "modify">
+	<update id="modify">
 	
 		UPDATE
 			MEMBER_TBL
@@ -102,15 +97,15 @@
 			MEM_ADDR_D = #{mem_addr_d}, 
 			MEM_PHONE = #{mem_phone}, 
 			MEM_NICK = #{mem_nick}, 
-			MEM_DATE_UP = SYSDATE
+			MEM_DATE_UP = SYSDATE	
 		WHERE
 			MEM_ID = #{mem_id}
 	
 	</update>
 	
-	<update id = "loginTimeUpdate">
+	<update id="loginTimeUpdate">
 	
-		UPDATE
+		UPDATE 
 			MEMBER_TBL
 		SET
 			MEM_DATE_LAST = SYSDATE
@@ -119,7 +114,8 @@
 	
 	</update>
 	
-	<select id = "getOrderTotalPrice" resultType = "int">
+	
+	<select id="getOrderTotalPrice" resultType="int">
 	
 		SELECT 
 			SUM(ODR_TOTAL_PRICE)
@@ -131,5 +127,5 @@
 			ODR_STATUS = '배송완료'
 	
 	</select>
-	
+
 </mapper>

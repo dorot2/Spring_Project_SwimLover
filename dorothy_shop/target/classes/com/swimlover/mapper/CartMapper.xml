@@ -93,4 +93,5 @@
 			MEM_ID = #{mem_id}
 		
 	</select>
+	
 </mapper>

@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,4 +70,36 @@ public class ReviewController {
 		entity = new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
 		return entity;
 	}
+	
+	//상품후기 수정
+	@PatchMapping(value = "/modify", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> modify(@RequestBody ReviewVO vo, HttpSession session) {
+		
+		ResponseEntity<String> entity = null;
+		
+		if(reviewService.update(vo) == 1) {
+			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	
+	//상품후기 삭제
+	@DeleteMapping(value = "/delete/{rv_num}")
+	public ResponseEntity<String> delete(@PathVariable("rv_num") Long rv_num) {
+		
+		ResponseEntity<String> entity = null;
+		
+		if(reviewService.delete(rv_num) == 1) {
+			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+		
+		
+		return entity;
+	}
+	
 }

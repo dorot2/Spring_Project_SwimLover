@@ -97,9 +97,5 @@ public class OrderServiceImpl implements OrderService {
 	public List<OrderDetailProductVO> getOrderDetailList(Long odr_code) {
 		return orderMapper.getOrderDetailList(odr_code);
 	}
-
-
-
-	
 	
 }

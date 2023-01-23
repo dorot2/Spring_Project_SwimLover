@@ -18,11 +18,17 @@ public class KakaoPayServiceImpl {
 
 	// 첫번째 요청주소(결제 준비)
 	public ReadyResponse payReady(Long odr_code, String itemName, int quantity, String mem_id, int totalAmount) {
-		String order_id = "100";
+		// String order_id = "100";
+		
+		log.info("주문번호: " + odr_code);
+		log.info("주문상품명:" + itemName);
+		log.info("수량:" + quantity);
+		log.info("아이디: " + mem_id);
+		log.info("총금액: " + totalAmount);
 		
 		MultiValueMap<String, String> parameters = new LinkedMultiValueMap<String, String>();
 		parameters.add("cid", "TC0ONETIME"); 
-		parameters.add("partner_order_id", order_id); 
+		parameters.add("partner_order_id", String.valueOf(odr_code)); 
 		parameters.add("partner_user_id", mem_id); 
 		parameters.add("item_name", itemName); 
 		parameters.add("quantity", String.valueOf(quantity)); 

@@ -55,6 +55,7 @@ public class ProductController {
 	@GetMapping("/productList/{cate_code}/{cate_name}")
 	public String productList(@ModelAttribute("cri")Criteria cri, @PathVariable("cate_code") Integer cate_code, 
 								@PathVariable("cate_name") String cate_name, Model model) {
+		
 		log.info("2차 카테고리 코드 : " + cate_code);
 		log.info("2차 카테고리 이름 : " + cate_name);
 		

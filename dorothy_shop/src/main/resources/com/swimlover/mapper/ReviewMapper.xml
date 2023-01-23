@@ -11,6 +11,27 @@
 	
 	</insert>
 	
+	<update id="update">
+	
+		UPDATE
+			REVIEW_TBL
+		SET
+			RV_CONTENT = #{rv_content},
+			RV_SCORE = #{rv_score}
+		WHERE
+			RV_NUM = #{rv_num}
+	
+	</update>
+	
+	<delete id="delete">
+	
+		DELETE FROM 
+			REVIEW_TBL
+		WHERE
+			RV_NUM = #{rv_num}
+			
+	</delete>
+	
 	<select id = "list" resultType = "com.swimlover.domain.ReviewVO">
 	
 		<![CDATA[
