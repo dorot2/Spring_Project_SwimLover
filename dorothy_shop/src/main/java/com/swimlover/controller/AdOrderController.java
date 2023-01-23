@@ -170,7 +170,7 @@ public class AdOrderController {
 	public String orderDelete(Criteria cri, Long odr_code, RedirectAttributes rttr) {
 		
 		adOrderService.orderInfoDelete(odr_code);
-		rttr.addFlashAttribute("msg", "orderDelete");
+		rttr.addFlashAttribute("msg", "주문이 삭제되었습니다.");
 		return "redirect:/admin/order/orderList" + cri.getListLink();
 	}
 	

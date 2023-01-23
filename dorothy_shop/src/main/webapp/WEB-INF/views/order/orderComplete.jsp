@@ -47,6 +47,15 @@
           font-size: 3.5rem;
         }
       }
+      
+      .p-2 {
+          text-decoration:none;
+          word-spacing : 20px;
+      }
+
+      a {
+          text-decoration:none;
+      }
     </style>
 	<script>
       let msg = '${msg}';

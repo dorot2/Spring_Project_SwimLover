@@ -23,7 +23,8 @@
 				MEM_ADDR_D, 
 				MEM_PHONE, 
 				MEM_NICK, 
-				MEM_ACCEPT_E 	
+				MEM_ACCEPT_E,
+				MEM_ACCEPT_INFO	
 			)
 		VALUES
 			(
@@ -36,7 +37,8 @@
 				#{mem_addr_d},
 				#{mem_phone},
 				#{mem_nick},
-				#{mem_accept_e}
+				#{mem_accept_e},
+				#{mem_accept_info}
 			)
 	
 	</insert>
@@ -58,7 +60,8 @@
 			MEM_DATE_SUB, 
 			MEM_DATE_UP, 
 			MEM_DATE_LAST, 
-			MEM_AUTHCODE
+			MEM_AUTHCODE,
+			MEM_ACCEPT_INFO
 		FROM 
 			MEMBER_TBL
 		WHERE
@@ -123,9 +126,7 @@
 			ORDER_TBL
 		WHERE 
 			MEM_ID = #{mem_id} 
-		AND 
-			ODR_STATUS = '배송완료'
-	
+			
 	</select>
 
 </mapper>

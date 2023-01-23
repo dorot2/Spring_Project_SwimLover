@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,43 +9,47 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Pricing example · Bootstrap v4.6</title>
+    <title>SwimLover_Modify</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
 
     
 <%@include file="/WEB-INF/views/include/common.jsp" %>
-    
-
-
-
-    <!-- Favicons 
-<link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.6/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="/docs/4.6/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
--->
+  
 <meta name="theme-color" content="#563d7c">
 
-
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+    
+    body {
+        min-height: 170vh;
+        background: #f0f0f0;
       }
+      
+      .input-form {
+        max-width: 800px;
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+        margin-top: 100px;
+        border-top: 150px;
+        padding: 35px;
+        padding-right: 35px;
+        padding-left: 35px;
+
+        background: #fff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
       }
+            
+      .btn-link{
+        text-decoration:none;
+      }
+      
+      .p-2 {
+  	text-decoration:none;
+  	}
     </style>
 
     <script>
@@ -58,13 +63,14 @@
   </head>
   <body>
     
-<%@include file="/WEB-INF/views/include/header.jsp" %>
+	<%@include file="/WEB-INF/views/include/header.jsp" %>
 
 
 
-<div class="container">
-<h3>회원수정</h3>
-  <div class="mb-3 text-center">
+    <div class="container">
+      <div class="input-form-backgroud row">
+        <div class="input-form col-md-12 mx-auto">
+          <h4 class="mb-3"><b>정보수정</b></h4><br>
 	  <form id="modifyForm" action="modify" method="post">
 		  <div class="form-group row">
 		    <label for="mem_id" class="col-sm-2 col-form-label">아이디</label>
@@ -146,13 +152,14 @@
 		  </div>
 	 </form>
   </div>
+</div>
+<p class="mb-1"></p><br><br><br><br>
+</div>
 
 
   <!--  footer.jsp -->
   <%@include file="/WEB-INF/views/include/footer.jsp" %>
-</div>
-
-
+  
   <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
@@ -166,8 +173,6 @@
  
     //회원수정 전송 클릭
     $("#btnModify").on("click", function() {
-     
-   
     	modifyForm.submit(); // 폼의 정보가 서버로 진행된다.
 
     });

@@ -72,18 +72,19 @@ public class MemberController {
 		
 		// 개인정보 수집 
 		// <input type = "checkbox"> 체크하지 않으면 정보가 전송되지 않아 null 처리가 됨
-		if(vo.getMem_accept_info().equals("on")) {
+		if(vo.getMem_accept_info() != null && vo.getMem_accept_info().equals("on")) {
 			vo.setMem_accept_info("Y");
+		}else {
+			vo.setMem_accept_info("N");
 		}
-		log.info(vo); 
 		
 		// 이메일
 		// <input type = "checkbox"> 체크하지 않으면 정보가 전송되지 않아 null 처리가 됨(2)
-		if(vo.getMem_accept_e().equals("on")) {
+		if(vo.getMem_accept_e() != null && vo.getMem_accept_e().equals("on")) {
 			vo.setMem_accept_e("Y");
-		}
-		
-		log.info(vo); 		
+		}else {
+			vo.setMem_accept_e("N");
+		}	
 		memberService.join(vo);
 		
 		return "redirect:/member/login";
@@ -197,12 +198,12 @@ public class MemberController {
 			memberService.changePW(db_mem_id, passwordEncoder.encode(temp_pw));
 			
 			//4. 사용자에게 임시비밀번호 메일발송
-			EmailDTO dto = new EmailDTO("DocMall", "DocMall", mem_email, "DocMall 임시비밀번호 입니다.", "");
+			EmailDTO dto = new EmailDTO("SwimLover", "SwimLover", mem_email, "SwimLover 임시비밀번호 입니다.", "");
 			
 			try {
 				emailService.sendMail(dto, temp_pw);
 				url = "/member/login";
-				msg = "메일이 발송되었습니다.";
+				msg = "임시 비밀번호가 메일로 발송되었습니다.";
 				
 			}catch(Exception ex) {
 				ex.printStackTrace();

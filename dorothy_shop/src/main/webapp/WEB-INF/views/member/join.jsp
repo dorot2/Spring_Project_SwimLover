@@ -176,7 +176,7 @@
         </div> 
       </div>
       <footer class="my-3 text-center text-small">
-        <p class="mb-1">&copy; 2021 YD</p><br><br><br><br>
+        <p class="mb-1"></p><br><br><br><br>
       </footer>
     </div>
 
@@ -271,6 +271,14 @@
             }
           });
         });
+        
+        //회원가입 전송 클릭
+        $("#btnJoin").on("click", function() {
+      	  
+        alert("회원가입이 완료되었습니다 :) 로그인 해주세요!");
+        
+        });
+        
       });
 
     </script>
@@ -382,8 +390,10 @@
             form.classList.add('was-validated');
           }, false);
         });
+        
       }, false);
         
+     
     </script>
   </body>
 </html>

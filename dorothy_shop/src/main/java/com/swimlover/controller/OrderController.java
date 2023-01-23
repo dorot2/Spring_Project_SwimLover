@@ -165,8 +165,7 @@ public class OrderController {
 		Long odr_code = (Long) session.getAttribute("odr_code");
 		
 		ApproveResponse approveResponse = kakaoPayServiceImpl.payApprove(odr_code, tid, pgToken, mem_id);
-		
- 
+		 
 		//세션으로 저장한 정보는 사용후 즉시 소멸시킨다.
 		session.removeAttribute("tid");
 		session.removeAttribute("odr_code");

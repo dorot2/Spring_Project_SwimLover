@@ -90,44 +90,35 @@
 		    </div>
 		    
               		
-             <div class="col-md-4 mb-3">
-             	<label>&nbsp;</label>
+             <div class="col-md-4 mb-3" style = "padding: 36px 0px 0px 15px;">
 			  	<button type="submit" class="btn btn-dark" id="btnLogin">아이디 찾기</button>
-			  	<button type="button" class="btn btn-dark" id="btnSearchIDPW">로그인</button>
 			  </div>
-			  
-			  
 			  </div>
 			</form>
 			  </div>
 			  
-			  
-			   <!-- 임시비밀번호 발급 -->
-			      <div class="container">
+<!-- 임시비밀번호 발급 -->
+<div class="container">
       <div class="input-form-backgroud row">
       
         <div class="input-form col-md-12 mx-auto">
          <h3 class="mb-3"><b>임시비밀번호 발급</b></h3>
+         	 	<form id="loginForm" action="searchPw" method="post">
+            <div class="row">
          
-         
-	 <div class="col-sm-6">
-	 	<form id="loginForm" action="searchPw" method="post">
-		  <div class="form-group row">
-		    <label for="mem_id" class="col-sm-4 col-form-label">아이디</label>
-		    <div class="col-sm-8">
-		      <input type="text" class="form-control" id="mem_id" name="mem_id" placeholder="ID" required>
+          <div class="col-md-3 mb-3">
+                <label for="mem_id">아이디</label>
+		      <input type="text" class="form-control" id="mem_id" name="mem_id" placeholder="ID">
 		    </div>
-		  </div>
-		  <div class="form-group row">
-		    <label for="mem_pw" class="col-sm-4 col-form-label">전자우편</label>
-		    <div class="col-sm-8">
-		      <input type="text" class="form-control" id="mem_email" name="mem_email" placeholder="EMAIL" required>
+		    
+	 	 <div class="col-md-5 mb-3">
+		    <label for="mem_email">이메일</label>
+		      <input type="text" class="form-control" id="mem_email" name="mem_email" placeholder="EMAIL">
 		    </div>
-		  </div>
-		  <div class="form-group row">
-			  <div class="col-sm-12 text-center">
+		    
+		      		
+             <div class="col-md-4 mb-3" style = "padding: 36px 0px 0px 15px;">
 			  	<button type="submit" class="btn btn-dark" id="btnLogin">임시 비밀번호 발급</button>
-			  	<!-- <button type="button" class="btn btn-dark" id="btnSearchIDPW">로그인</button> -->
 			  </div>			
 		  </div>
 		  <!-- 임시비번 발급완료 -->			
@@ -141,16 +132,9 @@
       
       
       <footer class="my-3 text-center text-small">
-        <p class="mb-1">&copy; 2021 YD</p><br><br><br><br>
+        <p class="mb-1"></p><br><br><br><br>
       </footer>
     </div> 
- 
- 
-	 
-	 
-	
-	 	</form>
-	 </div>
 
 
     <!--  footer.jsp -->
