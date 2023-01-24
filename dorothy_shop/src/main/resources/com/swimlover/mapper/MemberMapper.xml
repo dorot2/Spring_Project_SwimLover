@@ -128,5 +128,16 @@
 			MEM_ID = #{mem_id} 
 			
 	</select>
+	
+	<select id="searchID" resultType="string">
+	
+		SELECT 
+			MEM_ID
+		FROM 
+			MEMBER_TBL
+		WHERE 
+			MEM_NAME = #{mem_name} AND MEM_EMAIL = #{mem_email}
+		
+	</select>
 
 </mapper>

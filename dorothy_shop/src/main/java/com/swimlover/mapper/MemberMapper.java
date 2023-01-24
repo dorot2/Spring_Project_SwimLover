@@ -29,4 +29,7 @@ public interface MemberMapper {
 	
 	// 총 주문금액(배송완료 기준)
 	int getOrderTotalPrice(String mem_id);
+	
+	// 아이디 찾기
+	String searchID(@Param("mem_name") String mem_name, @Param("mem_email") String mem_email);
 }

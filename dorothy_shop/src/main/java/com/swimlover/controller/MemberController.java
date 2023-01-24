@@ -168,6 +168,30 @@ public class MemberController {
 		
 	}
 	
+	//아이디찾기
+		@PostMapping("/searchID")
+		public String searchID(@RequestParam("mem_name") String mem_name, @RequestParam("mem_email") String mem_email, 
+								Model model, RedirectAttributes rttr) {
+			
+			log.info("이름: " + mem_name);
+			log.info("전자우편: " + mem_email);
+			
+			String mem_id = memberService.searchID(mem_name, mem_email);
+			
+			String url = "";
+			
+			if(mem_id != null) {
+				model.addAttribute("mem_id", mem_id); // key, value
+				url = "/member/searchID"; // jsp파일이름
+			}else {
+				url = "redirect:/member/lostpass"; // 이동주소(get방식요청)
+				rttr.addFlashAttribute("msg", "noID");
+			}
+			
+			return url;		
+		}
+	
+	
 	//비번찾기 : 임시비밀번호 발급
 	@PostMapping("/searchPw")
 	public String searchPw(@RequestParam("mem_id") String mem_id, 

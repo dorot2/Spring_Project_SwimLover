@@ -56,4 +56,9 @@ public class MemberServiceImpl implements MemberService {
 	public int getOrderTotalPrice(String mem_id) {
 		return memberMapper.getOrderTotalPrice(mem_id);
 	}
+
+	@Override
+	public String searchID(String mem_name, String mem_email) {
+		return memberMapper.searchID(mem_name, mem_email);
+	}
 }

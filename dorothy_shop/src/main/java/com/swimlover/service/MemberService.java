@@ -20,4 +20,6 @@ public interface MemberService {
 	void loginTimeUpdate(String mem_id);
 	
 	int getOrderTotalPrice(String mem_id);
+	
+	String searchID(String mem_name, String mem_email);
 }
