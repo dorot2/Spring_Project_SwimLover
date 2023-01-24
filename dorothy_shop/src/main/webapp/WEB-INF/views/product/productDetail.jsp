@@ -24,7 +24,7 @@
         <div class="col-md-3">{{idThreeDisplay mem_id}}</div>
         <div class="col-md-9">{{prettifyDate rv_date_reg}}</div>
       </div>
-      <div class="row">
+      <div class="row"> 
         <div class="col-md-3">
             {{displayStar rv_score}}
             <input type="hidden" name="rv_score" value="{{rv_score}}">
@@ -88,7 +88,8 @@
 
         p {
             margin: 0 0 20px;
-            line-height: 1.5;}
+            line-height: 1.5;
+            }
 
         .main {
             min-width: 320px;
@@ -150,9 +151,12 @@
 		<%@include file="/WEB-INF/views/include/header.jsp" %>
     	<%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
 	
+	<!-- 수정 -->
 	<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">${cate_name }</h1>
     </div>
+    
+	
     <!-- 부트스트랩 여백 https://minaminaworld.tistory.com/136 -->
     <div class="container">
       <div class="row mb-3">
@@ -160,13 +164,18 @@
           <img src="/product/displayFile?folderName=${productVO.pdt_img_folder }&fileName=${productVO.pdt_img}" alt="" width="450" height="450">
         </div>
         <div class="col-md-6">
-          <div class="card-body" style="text-align: center;">
-            <h5 class="card-title">${productVO.pdt_name }</h5>
+          <div class="card-body" style="text-align: left; margin : 10px;">
+            <h3 class="card-title">${productVO.pdt_name }</h3><hr>
+                        
+            <p> <b>상품 코드</b> : <span class="badge badge-danger">${productVO.pdt_num }</span>
+			<p> <b>제조사</b> : ${productVO.pdt_company }
+			<p> <b>가격</b> : <fmt:formatNumber type="currency" pattern="￦#,###" value="${productVO.pdt_price }" /> 원
+			
+			<p> <b>재고수량</b> : ${productVO.pdt_amount }개
+            <p> <b>배송비</b> : 무료배송
+            
             <input type="hidden" name="pdt_num" value="${productVO.pdt_num }">
             <input type="text" name="odr_amount" value="1">
-            <p class="card-text">
-              <br><fmt:formatNumber type="currency" pattern="￦#,###" value="${productVO.pdt_price }" /> 원
-            </p>
             <p class="card-text"><small class="text-muted"> </small></p>
           </div>
           <div class="card-body" style="text-align: center;">
@@ -179,7 +188,7 @@
       
       <!-- 하단 탭부분 -->
 	<div class="main">
-	    <input id="tab1" type="radio" name="tabs" checked=""> <!--디폴트 메뉴-->
+	    <input id="tab1" type="radio" name="tabs" checked="">
 	    <label for="tab1">상품설명</label>
 	
 	    <input id="tab2" type="radio" name="tabs">

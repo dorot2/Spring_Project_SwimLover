@@ -131,13 +131,6 @@
 	    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="num" >
 	    	<li class='page-item ${pageMaker.cri.pageNum == num ? "active": "" }'><a class="page-link" href="${num}">${num}</a></li>
 	    </c:forEach>
-	    <!-- 
-	    <li class="page-item active" aria-current="page">
-	      <span class="page-link">2</span>
-	    </li>
-	    <li class="page-item"><a class="page-link" href="#">3</a></li>
-	     -->
-	    <!-- 다음표시 -->
 	    <c:if test="${pageMaker.next }">
 		    <li class="page-item">
 		      <a class="page-link" href="${pageMaker.endPage + 1 }">Next</a>
