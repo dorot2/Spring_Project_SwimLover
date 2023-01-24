@@ -65,8 +65,6 @@
     
 	<%@include file="/WEB-INF/views/include/header.jsp" %>
 
-
-
     <div class="container">
       <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
@@ -84,14 +82,6 @@
 		      <input type="password" class="form-control" id="mem_pw" name="mem_pw">
 		    </div>
 		  </div>
-		  <!-- 
-		  <div class="form-group row">
-		    <label for="mem_pw_2" class="col-sm-2 col-form-label">비밀번호확인</label>
-		    <div class="col-sm-10">
-		      <input type="password" class="form-control" id="mem_pw_2">
-		    </div>
-		  </div>
-		   -->
 		  <div class="form-group row">
 		    <label for="mem_name" class="col-sm-2 col-form-label">이름</label>
 		    <div class="col-sm-10">
@@ -137,14 +127,6 @@
 		    </div>
 		  </div>
 		  
-		  <%--
-		  <div class="form-group row">
-		      <label class="form-check-label col-sm-2" for="mem_accept_e">메일 수신동의</label>
-			  <div class="col-sm-10 text-left">
-			  	<input class="form-check-input" type="checkbox" id="mem_accept_e" name="mem_accept_e"  ${memberVO.mem_accept_e == 'Y'? 'checked':''}>
-			  </div>			
-		  </div>
-		   --%>
 		  <div class="form-group row">
 			  <div class="col-sm-12 text-center">
 			  	<button type="button" class="btn btn-dark" id="btnModify">수정하기</button>

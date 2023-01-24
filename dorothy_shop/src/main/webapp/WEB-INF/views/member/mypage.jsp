@@ -11,11 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
     
-    <!-- 회원가입 Bootstrap CSS -->
-  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+      
 	  <!-- common.jsp -->
     <%@include file="/WEB-INF/views/include/common.jsp" %>
 	
@@ -24,13 +22,13 @@
 	  <style>
 	
       body {
-        min-height: 80vh;
+        min-height: 120vh;
         background: #f0f0f0;
 
       }
 
       .input-form {
-        max-width: 400px;
+        max-width: 800px;
 
         margin-top: 100px;
         border-top: 150px;
@@ -46,14 +44,20 @@
         -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
         box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
       }
-          
+      .col-sm-3 {
+      	color : black;
+      	text-align : center;
+      }  
+      .col-sm-5 {
+      	margin-top : 6px;
+      }
       .btn-link{
         text-decoration:none;
       }
       
       .p-2 {
-  	text-decoration:none;
-  	}
+	  	text-decoration:none;
+	  	}
     
     </style>
     
@@ -64,61 +68,67 @@
       }
 
     </script>
-
-    <!-- header.jsp -->
-    <%@include file="/WEB-INF/views/include/header.jsp" %>
-
   </head>
-
-
+  
+  
   <body> 
 
+ <%@include file="/WEB-INF/views/include/header.jsp" %>
+
     <div class="container">
-  <h3>마이페이지</h3>
-  <div class="mb-3 text-center">
-		  <div class="row">
-		    <label for="mem_id" class="col-sm-2 col-form-label">회원 가입일</label>
+      <div class="input-form-backgroud row">
+        <div class="input-form col-md-12 mx-auto">
+          <h4 class="mb-3"><b>마이페이지</b></h4><br>
+		  <div class="form-group row">
+		    <label for="mem_id" class="col-sm-3 col-form-label">회원 가입일</label>
 		    <div class="col-sm-5">
 		      <span><fmt:formatDate value="${sessionScope.loginStatus.mem_date_sub }" pattern="yyyy-MM-dd hh:mm" />
 		     </span>
 		    </div>
-		  </div>
-		  <div class="row">
-		    <label for="mem_pw" class="col-sm-2 col-form-label">최근 로그인</label>
+		   <div class="form-group row">
+		    <label for="mem_pw" class="col-sm-3 col-form-label">최근 로그인</label>
 		    <div class="col-sm-5">
 		      <span><fmt:formatDate value="${sessionScope.loginStatus.mem_date_last }" pattern="yyyy-MM-dd hh:mm" /></span>
 		    </div>
 		  </div>
-		  <div class="row">
-		    <label for="mem_pw" class="col-sm-2 col-form-label">진행중 주문</label>
+		  <hr>
+		   <div class="form-group row">
+		    <label for="mem_pw" class="col-sm-3 col-form-label">진행중 주문</label>
 		    <div class="col-sm-5">
 		      <span>${orderProcessCount} 개</span>
 		    </div>
 		  </div>
-		  <div class="row">
-		    <label for="mem_pw" class="col-sm-2 col-form-label">장바구니</label>
+		   <div class="form-group row">
+		    <label for="mem_pw" class="col-sm-3 col-form-label">장바구니</label>
 		    <div class="col-sm-5">
 		      <span>${cartProductCount} 개</span>
 		    </div>
 		  </div>
-		  <div class="row">
-		    <label for="mem_pw" class="col-sm-2 col-form-label">총 주문금액</label>
+		   <div class="form-group row">
+		    <label for="mem_pw" class="col-sm-3 col-form-label">총 주문금액</label>
 		    <div class="col-sm-5">
 		      <span>${odr_totalPrice }원 (배송완료 기준)</span>
 		    </div>
 		  </div>
-		  <div class="row">
-		    <label for="mem_pw" class="col-sm-2 col-form-label">사용가능 포인트</label>
+		   <div class="form-group row">
+		    <label for="mem_pw" class="col-sm-3 col-form-label">사용가능 포인트</label>
 		    <div class="col-sm-5">
 		      <span>${sessionScope.loginStatus.mem_point }원</span>
 		    </div>
-		  </div>
   </div>
-
+</div>
+</div>
+</div>
+<p class="mb-1"></p><br><br><br><br>
+</div>
 
     <!--  footer.jsp -->
     <%@include file="/WEB-INF/views/include/footer.jsp" %> 
 
+  <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+</div>
       
     <script>
     $(document).ready(function() {
