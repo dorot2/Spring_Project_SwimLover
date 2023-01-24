@@ -9,8 +9,8 @@
 		<!-- logo for regular state and mobile devices -->
 		<span class="logo-lg"><b>SwimLover</b> Admin</span>
 	</a>
-
-    <!-- Header Navbar -->
+	
+	   <!-- Header Navbar -->
 	<nav class="navbar navbar-static-top" role="navigation">
 	  <!-- Sidebar toggle button-->
 	  <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -36,4 +36,4 @@
 	    </ul>
 	  </div>
 	</nav>
-  </header>
+</header>

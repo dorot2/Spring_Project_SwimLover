@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -14,13 +13,11 @@
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-	  <!-- common.jsp -->
     <%@include file="/WEB-INF/views/include/common.jsp" %>
 	
-    <title>SwimLover_Login</title>
+    <title>SwimLover</title>
 
 	  <style>
-	
       body {
         min-height: 80vh;
         background: #f0f0f0;
@@ -29,13 +26,11 @@
 
       .input-form {
         max-width: 400px;
-
         margin-top: 100px;
         border-top: 150px;
         padding: 35px;
         padding-right: 35px;
         padding-left: 35px;
-
         background: #fff;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -50,27 +45,23 @@
       }
       
       .p-2 {
-  	text-decoration:none;
-  }
+  	    text-decoration:none;
+      }
     
     </style>
     
-        <script>
+    <script>
       let msg = '${msg}';
       if(msg != '') {
         alert(msg);
       }
-
     </script>
-
-    <!-- header.jsp -->
-    <%@include file="/WEB-INF/views/include/header.jsp" %>
-    <%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
-
   </head>
 
-
   <body> 
+    
+    <%@include file="/WEB-INF/views/include/header.jsp" %>
+    <%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
 
     <div class="container">
       <div class="input-form-backgroud row">
@@ -78,22 +69,18 @@
           <h4 class="mb-3"><b>로그인</b></h4><br>
           <form id = "loginForm" action = "loginPost" method = "post">
             <div class="mb-3">
-            
               <div class="col-md-12 mb-3">
                 <label for="mem_id">아이디</label>
                 <input type="text" class="form-control" id="mem_id" name="mem_id" placeholder="아이디를  입력해주세요.">
               </div>
-            
               <div class="col-md-12 mb-3">
                 <label for="mem_pw">비밀번호</label>
                 <input type="password" class="form-control" id="mem_pw" name="mem_pw" placeholder="비밀번호를 입력해주세요.">
               </div>
-            
-             <div class="col-md-12 text-center">
-			  	<button type="submit" class="btn btn-dark" id="btnLogin">로그인</button>
-			  	<button type="button" class="btn btn-dark" id="btnSearchIDPW">ID/PW Search</button>
-			  </div>
-            
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-dark" id="btnLogin">로그인</button>
+                <button type="button" class="btn btn-dark" id="btnSearchIDPW">ID/PW Search</button>
+              </div>
             </div>
           </form>
         </div> 
@@ -103,18 +90,14 @@
       </footer>
     </div>
 
-
-    <!--  footer.jsp -->
     <%@include file="/WEB-INF/views/include/footer.jsp" %> 
-
       
     <script>
-    $(document).ready(function() {
+      $(document).ready(function() {
         $("#btnSearchIDPW").on("click", function() {
           location.href = "/member/lostpass";
         });
       });
-    
     </script>
   </body>
 </html>

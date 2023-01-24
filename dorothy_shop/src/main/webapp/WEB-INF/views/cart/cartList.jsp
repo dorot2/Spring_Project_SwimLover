@@ -2,46 +2,42 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-
 <html>
   <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">	
-      <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.101.0">
-        <title>Welcome to SwimLover</title>
-      
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
-        
-      <%@include file="/WEB-INF/views/include/common.jsp" %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>SwimLover</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/pricing/">
+    
+    <%@include file="/WEB-INF/views/include/common.jsp" %>
 
     <style>
       .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
-
       @media (min-width: 768px) {
       .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        font-size: 3.5rem;
       }
       }
       .p-2 {
-          text-decoration:none;
-          word-spacing : 20px;
+        text-decoration:none;
+        word-spacing : 20px;
       }
       a {
-          text-decoration:none;
+        text-decoration:none;
       }
       .navbar {
-          font-size : 25px;
+        font-size : 25px;
       }
-      
     </style>
 
     <script>
@@ -50,7 +46,6 @@
         alert(msg);
       }
     </script>
-
   </head>
 
   <body>
@@ -136,7 +131,7 @@
       </div>
     </div>
 
-	<%@include file="/WEB-INF/views/include/footer.jsp" %>
+	  <%@include file="/WEB-INF/views/include/footer.jsp" %>
 	
     <script>
       $(document).ready(function(){
@@ -291,10 +286,8 @@
         });
       });   
       	
-      
       //sum_price가격 변경
       function fn_sum_price() {
-          
         let sum_price = 0;
         $("table#cartlist span.sales_price").each(function(index, item){
           sum_price += parseInt($.withoutCommas($(item).text()));  
@@ -302,7 +295,6 @@
         
         $("span#sum_price").text($.numberWithCommas(sum_price)); 
       }
-      
       
     </script>
   </body>

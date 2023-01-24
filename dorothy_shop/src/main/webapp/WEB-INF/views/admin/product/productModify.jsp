@@ -7,8 +7,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Admin_SwimLover</title>
-		<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
 		<%@ include file="/WEB-INF/views/admin/include/plugin1.jsp" %>
 
 		<script>
@@ -22,9 +22,7 @@
 	<body class="hold-transition skin-black sidebar-mini">
 		<div class="wrapper">
 
-			<!-- Main Header -->
 			<%@ include file="/WEB-INF/views/admin/include/header.jsp" %>
-			<!-- Left side column. contains the logo and sidebar -->
 			<%@ include file="/WEB-INF/views/admin/include/nav.jsp" %>
 
 			<!-- Content Wrapper. Contains page content -->

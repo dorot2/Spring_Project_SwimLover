@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -17,7 +16,7 @@
 	  <!-- common.jsp -->
     <%@include file="/WEB-INF/views/include/common.jsp" %>
 	
-    <title>SwimLover_Join</title>
+    <title>SwimLover</title>
 
 	  <style>
 	
@@ -48,20 +47,18 @@
       .btn-link{
         text-decoration:none;
       }
+
       .p-2 {
-  	text-decoration:none;
-  }
+  	  text-decoration:none;
+      }
     
     </style>
-
-    <!-- header.jsp -->
-    <%@include file="/WEB-INF/views/include/header.jsp" %>
-    <%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
-
   </head>
 
-
   <body> 
+
+    <%@include file="/WEB-INF/views/include/header.jsp" %>
+    <%@include file="/WEB-INF/views/include/categoryMenu.jsp" %>
 
     <div class="container">
       <div class="input-form-backgroud row">
@@ -69,89 +66,73 @@
           <h4 class="mb-3"><b>회원가입</b></h4><br>
           <form id = "joinForm" action = "join" method = "post" class="validation-form" novalidate>
             <div class="row">
-            
               <div class="col-md-6 mb-3">
                 <label for="mem_id">아이디</label>
                 <input type="text" class="form-control" id="mem_id" name="mem_id" placeholder="아이디를  8~15이내로 입력" required>
                 <div class="invalid-feedback">아이디를 입력해주세요.</div>
-              </div>
-            
+              </div>            
               <div class="col-md-3 mb-3">
                 <label>&nbsp;</label>
                 <button type="button" class="btn btn-link" id="btnIDCheck">ID중복확인</button>
-              </div>
-            
+              </div>            
               <div class="col-md-3 mb-3">
                 <label>&nbsp;</label>
                 <label style="display:none;" id="idCheckStatus">중복확인결과</label>
-              </div>
-            
+              </div>            
               <div class="col-md-6 mb-3">
                 <label for="mem_pw">비밀번호</label>
                 <input type="password" class="form-control" id="mem_pw" name="mem_pw" required>
                 <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
-              </div>
-            
+              </div>            
               <div class="col-md-6 mb-3">
                 <label for="mem_pw_2">비밀번호 확인</label>
                 <input type="password" class="form-control" id="mem_pw_2" name="mem_pw_2" required>
                 <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
-              </div>
-            
+              </div>            
               <div class="col-md-4 mb-3">
                 <label for="mem_name">이름</label>
                 <input type="text" class="form-control"  id="mem_name" name="mem_name" required>
                 <div class="invalid-feedback">이름을 입력해주세요.</div>
-              </div>
-            
+              </div>            
               <div class="col-md-4 mb-3">
                 <label for="mem_nick">닉네임</label>
                 <input type="text" class="form-control" id="mem_nick" name="mem_nick" required>
                 <div class="invalid-feedback">닉네임을 입력해주세요.</div>
-              </div>
-          
+              </div>          
               <div class="col-md-4 mb-3">
                 <label for="mem_phone">휴대폰 번호</label>
                 <input type="text" class="form-control" id="mem_phone" name="mem_phone" placeholder="010-1234-1234" required>
                 <div class="invalid-feedback">휴대폰 번호를 입력해주세요.</div>
-              </div>
-              
-               <div class="col-md-6 mb-3">
+              </div>              
+              <div class="col-md-6 mb-3">
                 <label for="mem_email">이메일</label>
                 <input type="email" class="form-control" id="mem_email" name="mem_email" placeholder="swimlover@example.com" required>
                 <div class="invalid-feedback">이메일을 입력해주세요.</div>
               </div>
-          
               <div class="col-md-2 mb-3">
               	<label>&nbsp;</label>
                 <button type="button" class="btn btn-dark btn-block" id="btnAuthcode">인증요청</button>   
               </div>
-              
               <div class="col-md-6 mb-3">
                 <label for="mem_authcode">메일인증코드</label>
                 <input type="text" class="form-control" id="mem_authcode" name="mem_authcode" required>
               </div>
-          
               <div class="col-md-2 mb-3">
                 <label>&nbsp;</label>
                 <button type = "button" class="btn btn-dark btn-block" id="btnConfirmAuthcode">인증확인</button>
               </div>
-
               <div class="col-md-6 mb-3">
                 <label for="sample2_postcode">우편번호</label>
                 <input type="text" class="form-control" id="sample2_postcode" name="mem_zipcode" required>
-                </div>
-                
-                <div class="col-md-3 mb-3">
-                  <label>&nbsp;</label>
-                  <input type="button" class="btn btn-dark btn-block" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
               </div>
-
+              <div class="col-md-3 mb-3">
+                <label>&nbsp;</label>
+                <input type="button" class="btn btn-dark btn-block" onclick="sample2_execDaumPostcode()" value="우편번호 찾기">
+              </div>
               <div class="col-md-12 mb-3">
                 <label for="sample2_address">주소</label>
                 <input type="text" class="form-control" id="sample2_address" name="mem_addr" placeholder="주소를 입력해주세요." required>
               </div>
-                
               <div class="col-md-12 mb-3">
                 <label for="sample2_detailAddress">상세주소</label>
                 <input type="text" class="form-control" id="sample2_detailAddress" name="mem_addr_d" placeholder="상세주소를 입력해주세요." required>
@@ -160,19 +141,16 @@
             </div>
 
             <hr class="mb-4">
-
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="mem_accept_info" name="mem_accept_info">
               <label class="custom-control-label" for="mem_accept_info">개인정보 수집 및 이용에 동의합니다.</label>
             </div>
-            
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="mem_accept_e" name="mem_accept_e">
-                <label class="custom-control-label" for="mem_accept_e">메일 수신에 동의합니다.</label></br>
+              <label class="custom-control-label" for="mem_accept_e">메일 수신에 동의합니다.</label></br>
             </div>
-        
             <div class="mb-4"></div>
-              <button class="btn btn-primary btn-lg btn-block" id="btnJoin" type="submit">회원가입</button>            
+            <button class="btn btn-primary btn-lg btn-block" id="btnJoin" type="submit">회원가입</button>            
           </form>
         </div> 
       </div>
@@ -181,8 +159,6 @@
       </footer>
     </div>
 
-
-    <!--  footer.jsp -->
     <%@include file="/WEB-INF/views/include/footer.jsp" %> 
 
     <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -191,10 +167,8 @@
     </div>
       
     <script>
-
       $(document).ready(function(){
         let joinForm = $("#joinForm");
-      
         //아이디 중복체크 사용
         let isCheckID = false;
         // 메일인증 사용
@@ -275,21 +249,15 @@
         
         //회원가입 전송 클릭
         $("#btnJoin").on("click", function() {
-      	  
         alert("회원가입이 완료되었습니다 :) 로그인 해주세요!");
-        
         });
-        
       });
-
     </script>
       
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
     <script>
       // 우편번호 찾기 화면을 넣을 element
       var element_layer = document.getElementById('layer');
-
       function closeDaumPostcode() {
         // iframe을 넣은 element를 안보이게 한다.
         element_layer.style.display = 'none';
@@ -299,7 +267,6 @@
         new daum.Postcode({
           oncomplete: function(data) {
             // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
             // 각 주소의 노출 규칙에 따라 주소를 조합한다.
             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = ''; // 주소 변수
@@ -343,7 +310,6 @@
             // iframe을 넣은 element를 안보이게 한다.
             // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
             element_layer.style.display = 'none';
-            
           },
 
           width : '100%',
@@ -376,7 +342,6 @@
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
       }
     
-
       // submit 클릭 시 필수입력사항 확인하기
       window.addEventListener('load', () => {
         const forms = document.getElementsByClassName('validation-form');
@@ -391,10 +356,8 @@
             form.classList.add('was-validated');
           }, false);
         });
-        
       }, false);
         
-     
     </script>
   </body>
 </html>
