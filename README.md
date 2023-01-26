@@ -1,9 +1,14 @@
 # Spring_Project_SwimLover
 <br>
-<div style="text-align : center;"><img src = "https://user-images.githubusercontent.com/105154847/214835081-0198c449-19d0-4a88-a1ca-f86e7b6180f2.gif"></div>
+<div align="center">
+<h3>SwimLover는 수영인을 위한 수영용품들이 한 곳에 모두 모인 사이트입니다.</h3>
+<img src = "https://user-images.githubusercontent.com/105154847/214835081-0198c449-19d0-4a88-a1ca-f86e7b6180f2.gif"
+style="display: block; margin: 0 auto; width:800px; height:450px;">
+<h5>SwimLover 메인 페이지</h5>
+</div>
 
 <br>
-
+<br>
 <h2>프로젝트 개요</h2>
 <li>프로젝트 명 : SwimLover 쇼핑몰</li>
 <li>참여 인원 : 1인(개인 프로젝트)</li>
@@ -52,12 +57,11 @@
 <br>
 
 <h2>프로젝트를 하며 느낀 점</h2>
-<li>Open API의 활용성 : 스스로 구현하는 기능들도 재미있엇지만 Open API를 적용해 훨씬 풍부하고 신뢰성 있는 서비스를 구현해 볼 수 있었음</li>
-<li>JSP별 화면 구성 : </li>
-<li></li>
-<br>
-
-<h2>프로젝트를 하며 아쉬운 점</h2>
-<li></li>
-<li></li>
+<li>Open API의 활용성<br> : 스스로 구현하는 기능들도 재밌었지만 Open API를 적용해 훨씬 풍부하고 신뢰성 있는 서비스를 구현해 볼 수 있었습니다.</li><br>
+<li>JSP별 화면 구성<br> : 사용자로서는 당연하게 생각했던 것들이 개발자의 시점에서는 세심하게 모든 부분을 컨트롤하고 있다는 것을 깨달았습니다.  </li><br>
+<li>개인적인 감정<br> : 처음 프로젝트를 시작했을 땐 단순히 java 공부를 했을 때와는 달리 사용하는 언어도 툴도 한 가지가 아니었기에 많이 복잡하다고 느꼈습니다.
+하지만 포기하지 않고 계속해서 프로젝트를 진행하다 보니 몇 가지 반복되는 루틴에 익숙해졌고 나중에는 스스로 만들고 싶은 기능을 구현해내기까지 했습니다. 
+<br> 또 혼자 진행하며 만났던 많은 에러들에도 이젠 당황하지 않고 구글링을 통해 수월한 수정이 가능했고, 에러가 해결되었을 때의 성취감은 기능이 에러 없이 잘 돌아갔을 때의 성취감보다 더 크게 다가왔습니다.
+<br> 아직 많이 부족하지만 성실하고 꾸준한 태도로 성장과 발전을 지속해 나가는 개발자가 되고 싶습니다.
+</li>
 <br>
