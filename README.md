@@ -1,6 +1,6 @@
 # Spring_Project_SwimLover
-![image](https://user-images.githubusercontent.com/105154847/213872040-efeb7772-5117-4785-bb61-dc34f467acac.png)
-![image](https://user-images.githubusercontent.com/105154847/213872043-a33c2918-d8cd-48b1-8524-dbc1f4365a75.png)
+<img src = "https://user-images.githubusercontent.com/105154847/214835081-0198c449-19d0-4a88-a1ca-f86e7b6180f2.gif">
+
 <br>
 
 <h2>프로젝트 개요</h2>
